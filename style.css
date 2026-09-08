@@ -1143,3 +1143,265 @@ h2 span {
 .music-button:hover {
     transform: translateY(-2px);
 }
+/* =========================================
+   WOW TRANSITIONS
+========================================= */
+
+.screen {
+    transform: scale(1.04);
+    filter: blur(4px);
+}
+
+.screen.active {
+    transform: scale(1);
+    filter: blur(0);
+}
+
+/* dramatic entrance */
+.screen.active .screen-content,
+.screen.active .birthday-step.active,
+.screen.active .letter,
+.screen.active .coffee-content {
+    animation: contentReveal 0.9s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes contentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================================
+   BUTTON GLOW
+========================================= */
+
+.main-button {
+    animation: buttonGlow 2.2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+    0%, 100% {
+        box-shadow:
+            0 12px 25px rgba(92, 65, 69, 0.20);
+    }
+
+    50% {
+        box-shadow:
+            0 12px 35px rgba(184, 117, 125, 0.45);
+    }
+}
+
+
+/* =========================================
+   BIRTHDAY NUMBER WOW
+========================================= */
+
+.big-number {
+    animation: numberReveal 1.2s cubic-bezier(.17,.67,.3,1.3) both;
+    text-shadow:
+        0 0 10px rgba(184, 117, 125, 0.15),
+        0 0 35px rgba(184, 117, 125, 0.20);
+}
+
+@keyframes numberReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.2);
+        filter: blur(15px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale(1.12);
+        filter: blur(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* birthday title entrance */
+
+.birthday-title {
+    animation: titleReveal 1s 0.35s both;
+}
+
+.birthday-message {
+    animation: titleReveal 1s 0.55s both;
+}
+
+.birthday-step .main-button {
+    animation:
+        titleReveal 0.8s 0.75s both,
+        buttonGlow 2.2s 1.55s ease-in-out infinite;
+}
+
+@keyframes titleReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================
+   SPARKLE ANIMATION
+========================================= */
+
+.sparkle {
+    animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    animation-delay: 0s;
+}
+
+.sparkle-2 {
+    animation-delay: 0.8s;
+}
+
+.sparkle-3 {
+    animation-delay: 1.5s;
+}
+
+.sparkle-4 {
+    animation-delay: 2.2s;
+}
+
+@keyframes sparkleFloat {
+    0%, 100% {
+        opacity: 0.25;
+        transform: translateY(0) scale(0.8) rotate(0);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: translateY(-12px) scale(1.2) rotate(20deg);
+    }
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+.floating-heart {
+    animation: heartFloat 5s ease-in-out infinite;
+}
+
+.heart-2 {
+    animation-delay: 1.5s;
+}
+
+.heart-3 {
+    animation-delay: 3s;
+}
+
+@keyframes heartFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(8deg);
+    }
+}
+
+
+/* =========================================
+   GIFT OPENING
+========================================= */
+
+.gift-wrapper.open .gift-lid {
+    animation: giftOpen 0.8s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.gift-wrapper.open .gift-body {
+    animation: giftGlow 1s ease-in-out;
+}
+
+@keyframes giftOpen {
+    0% {
+        transform: translateY(0) rotate(0);
+    }
+
+    100% {
+        transform: translateY(-55px) rotate(-8deg);
+    }
+}
+
+@keyframes giftGlow {
+    0%, 100% {
+        box-shadow: none;
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(184, 117, 125, 0.5),
+            0 0 80px rgba(184, 117, 125, 0.25);
+    }
+}
+
+
+/* =========================================
+   DATE CARD REVEAL
+========================================= */
+
+.date-card {
+    animation: cardReveal 0.9s 0.25s both;
+}
+
+@keyframes cardReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) rotate(1deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+    }
+}
+
+
+/* =========================================
+   FINAL SCREEN
+========================================= */
+
+.final-heart {
+    animation: heartBeat 1.5s ease-in-out infinite;
+    text-shadow:
+        0 0 25px rgba(184, 117, 125, 0.35);
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.15);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.08);
+    }
+}
