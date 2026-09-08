@@ -7,25 +7,24 @@
 
     <title>For My Bestie ♡</title>
 
-    <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&family=Pacifico&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Pacifico&family=Playfair+Display:wght@600;700&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- FLOATING HEARTS -->
+    <!-- FLOATING DECORATIONS -->
     <div class="floating-heart heart-1">♡</div>
     <div class="floating-heart heart-2">♡</div>
     <div class="floating-heart heart-3">♡</div>
 
-
     <!-- =========================
-         SCREEN 1 - OPENING
+         01 - HOME
     ========================== -->
 
     <section class="screen active" id="home">
@@ -58,127 +57,115 @@
     </section>
 
 
-<!-- =========================
-     SCREEN 2 - BIRTHDAY REVEAL
-========================== -->
-
-<section class="screen birthday-screen" id="birthday">
-
-    <!-- DECORATIONS -->
-    <div class="birthday-glow"></div>
-
-    <div class="sparkle sparkle-1">✦</div>
-    <div class="sparkle sparkle-2">✧</div>
-    <div class="sparkle sparkle-3">♡</div>
-    <div class="sparkle sparkle-4">✦</div>
-
-
     <!-- =========================
-         STEP 1
+         02 - BIRTHDAY
     ========================== -->
 
-    <div class="birthday-step active" id="birthdayStep1">
+    <section class="screen birthday-screen" id="birthday">
 
-        <p class="small-label">
-            OCTOBER 8, 2026
-        </p>
+        <div class="birthday-glow"></div>
 
-        <h1 class="question">
-            Wait...
-        </h1>
+        <div class="sparkle sparkle-1">✦</div>
+        <div class="sparkle sparkle-2">✧</div>
+        <div class="sparkle sparkle-3">♡</div>
+        <div class="sparkle sparkle-4">✦</div>
 
-        <p class="question-text">
-            Do you know what today is? 👀
-        </p>
+        <!-- STEP 1 -->
 
-        <button class="main-button" id="birthdayRevealButton">
-            REVEAL IT ✨
-        </button>
+        <div class="birthday-step active" id="birthdayStep1">
 
-    </div>
+            <p class="small-label">OCTOBER 8, 2026</p>
 
+            <h1 class="question">
+                Wait...
+            </h1>
 
-    <!-- =========================
-         STEP 2
-    ========================== -->
+            <p class="question-text">
+                Do you know what today is? 👀
+            </p>
 
-    <div class="birthday-step" id="birthdayStep2">
+            <button class="main-button" id="birthdayRevealButton">
+                REVEAL IT ✨
+            </button>
 
-        <p class="small-label">
-            TODAY'S SPECIAL NUMBER
-        </p>
-
-        <div class="big-number">
-            28
         </div>
 
-        <h1 class="birthday-title">
-            HAPPY 28TH<br>
-            BIRTHDAY! 🥹♡
-        </h1>
 
-        <p class="birthday-message">
-            You're officially 28!
-            <br>
-            And yes... you're getting older. 😂
-        </p>
+        <!-- STEP 2 -->
 
-        <button class="main-button" id="birthdayMoreButton">
-            THERE'S MORE 👀
-        </button>
+        <div class="birthday-step" id="birthdayStep2">
 
-    </div>
+            <p class="small-label">
+                TODAY'S SPECIAL NUMBER
+            </p>
 
+            <div class="big-number">
+                28
+            </div>
 
-    <!-- =========================
-         STEP 3
-    ========================== -->
+            <h1 class="birthday-title">
+                HAPPY 28TH<br>
+                BIRTHDAY! 🥹♡
+            </h1>
 
-    <div class="birthday-step" id="birthdayStep3">
+            <p class="birthday-message">
+                You're officially 28!
+                <br>
+                And yes... you're getting older. 😂
+            </p>
 
-        <div class="surprise-icon">
-            🎁
+            <button class="main-button" id="birthdayMoreButton">
+                THERE'S MORE 👀
+            </button>
+
         </div>
 
-        <p class="small-label">
-            BUT WAIT...
-        </p>
 
-        <h1 class="surprise-title">
-            I have one more
-            <span>surprise for you.</span>
-        </h1>
+        <!-- STEP 3 -->
 
-        <p class="surprise-text">
-            And no... I'm not telling you yet. 😂
-            <br><br>
-            You'll have to keep going.
-        </p>
+        <div class="birthday-step" id="birthdayStep3">
 
-        <button
-            class="main-button next-button"
-            data-next="reasons">
-            KEEP GOING → 
-        </button>
+            <div class="surprise-icon">
+                🎁
+            </div>
 
-    </div>
+            <p class="small-label">
+                BUT WAIT...
+            </p>
 
+            <h1 class="surprise-title">
+                I have one more
+                <span>surprise for you.</span>
+            </h1>
 
-    <div class="screen-number">
-        02 / 07
-    </div>
+            <p class="surprise-text">
+                And no... I'm not telling you yet. 😂
+                <br><br>
+                You'll have to keep going.
+            </p>
 
-</section>
+            <button class="main-button next-button" data-next="reasons">
+                KEEP GOING →
+            </button>
+
+        </div>
+
+        <div class="screen-number">02 / 07</div>
+
+    </section>
+
 
     <!-- =========================
-         SCREEN 3 - REASONS
+         03 - REASONS
     ========================== -->
 
     <section class="screen" id="reasons">
 
         <div class="screen-content wide">
 
-            <p class="eyebrow">28 years of being you</p>
+            <p class="eyebrow">
+                28 years of being you
+            </p>
 
             <h2 class="section-title">
                 A few reasons
@@ -204,7 +191,6 @@
                     </p>
                 </div>
 
-
                 <div class="reason-card">
                     <span class="reason-number">02</span>
                     <div class="reason-icon">✦</div>
@@ -216,7 +202,6 @@
                         somehow nagiging memorable kapag kasama kita.
                     </p>
                 </div>
-
 
                 <div class="reason-card">
                     <span class="reason-number">03</span>
@@ -230,7 +215,6 @@
                     </p>
                 </div>
 
-
                 <div class="reason-card">
                     <span class="reason-number">04</span>
                     <div class="reason-icon">♡</div>
@@ -243,7 +227,6 @@
                     </p>
                 </div>
 
-
                 <div class="reason-card">
                     <span class="reason-number">05</span>
                     <div class="reason-icon">✨</div>
@@ -255,7 +238,6 @@
                         enough reason to celebrate you.
                     </p>
                 </div>
-
 
                 <div class="reason-card special-card">
                     <span class="reason-number">06</span>
@@ -283,7 +265,7 @@
 
 
     <!-- =========================
-         SCREEN 4 - LETTER
+         04 - LETTER
     ========================== -->
 
     <section class="screen" id="letter">
@@ -354,14 +336,16 @@
 
 
     <!-- =========================
-         SCREEN 5 - GIFT
+         05 - GIFT
     ========================== -->
 
     <section class="screen gift-screen" id="gift">
 
         <div class="screen-content">
 
-            <p class="eyebrow">one last thing...</p>
+            <p class="eyebrow">
+                one last thing...
+            </p>
 
             <h2>
                 I got you a gift. 🎁
@@ -388,12 +372,11 @@
                 click the gift ↑
             </p>
 
-
-            <!-- HIDDEN UNTIL GIFT IS CLICKED -->
-
             <div class="gift-message" id="giftMessage">
 
-                <p class="eyebrow">WAIT... 😂</p>
+                <p class="eyebrow">
+                    WAIT... 😂
+                </p>
 
                 <h3>
                     You thought I was actually going
@@ -418,85 +401,119 @@
 
 
     <!-- =========================
-         SCREEN 6 - COFFEE
+         06 - DATE SURPRISE
     ========================== -->
 
     <section class="screen coffee-screen" id="coffee">
 
-        <div class="screen-content">
+        <div class="coffee-background-circle"></div>
 
-            <p class="eyebrow">SURPRISE! ☕</p>
+        <div class="coffee-content">
 
-            <div class="coffee-icon">☕</div>
+            <p class="eyebrow">
+                YOUR ACTUAL GIFT ☕
+            </p>
+
+            <div class="coffee-icon">
+                ☕
+            </div>
 
             <h2>
-                COFFEE + FOOD
-                <span>DATE!</span>
+                I'M TAKING YOU OUT
+                <span>FOR FOOD & COFFEE.</span>
             </h2>
 
             <p class="coffee-intro">
-                Because honestly... I'd rather spend time with you
-                than just give you another thing.
+                Because honestly...
+                spending time together is better than another random gift.
             </p>
+
+
+            <!-- DATE DETAILS -->
 
             <div class="date-card">
 
-    <div class="date-row">
-        <div class="date-icon">📅</div>
+                <div class="date-header">
+                    <span>THE PLAN</span>
+                    <div>♡</div>
+                </div>
 
-        <div class="date-info">
-            <span>WHEN</span>
-            <strong>October 9, 2026</strong>
-        </div>
-    </div>
+                <div class="date-main">
+
+                    <div class="date-big">
+                        09
+                    </div>
+
+                    <div class="date-month">
+                        <strong>OCTOBER</strong>
+                        <span>2026</span>
+                    </div>
+
+                </div>
+
+                <div class="date-line"></div>
+
+                <div class="date-details">
+
+                    <div class="detail-row">
+
+                        <div class="detail-icon">
+                            📍
+                        </div>
+
+                        <div>
+                            <small>WHERE</small>
+                            <strong>
+                                SM City San Jose del Monte
+                            </strong>
+                        </div>
+
+                    </div>
 
 
-    <div class="date-divider"></div>
+                    <div class="detail-row">
+
+                        <div class="detail-icon">
+                            🍽️
+                        </div>
+
+                        <div>
+                            <small>WHAT WE'RE DOING</small>
+                            <strong>
+                                Food + Coffee + Chika
+                            </strong>
+                        </div>
+
+                    </div>
 
 
-    <div class="date-row">
-        <div class="date-icon">📍</div>
+                    <div class="detail-row">
 
-        <div class="date-info">
-            <span>WHERE</span>
-            <strong>SM City San Jose del Monte</strong>
-        </div>
-    </div>
+                        <div class="detail-icon">
+                            👭
+                        </div>
 
+                        <div>
+                            <small>WHO</small>
+                            <strong>
+                                Just us ♡
+                            </strong>
+                        </div>
 
-    <div class="date-divider"></div>
+                    </div>
 
+                </div>
 
-    <div class="date-row">
-        <div class="date-icon">🍽️</div>
+            </div>
 
-        <div class="date-info">
-            <span>PLAN</span>
-            <strong>Food + Coffee</strong>
-        </div>
-    </div>
-
-
-    <div class="date-divider"></div>
-
-
-    <div class="date-row">
-        <div class="date-icon">👭</div>
-
-        <div class="date-info">
-            <span>WITH</span>
-            <strong>Just us ♡</strong>
-        </div>
-    </div>
-
-</div>
 
             <p class="date-message">
-                My treat. Your only responsibility is to show up,
-                eat, and bring your chikas. 😂
+                My treat. Your only job is to show up,
+                eat everything, and bring all your chikas. 😂
             </p>
 
-            <button class="main-button" id="acceptButton">
+
+            <button class="main-button date-button" id="acceptButton">
                 YES, I'M COMING! ☕
             </button>
 
@@ -504,22 +521,30 @@
 
         </div>
 
-        <div class="screen-number">06 / 07</div>
+        <div class="screen-number">
+            06 / 07
+        </div>
 
     </section>
 
 
     <!-- =========================
-         SCREEN 7 - FINAL
+         07 - FINAL
     ========================== -->
 
     <section class="screen final-screen" id="final">
 
+        <div class="final-glow"></div>
+
         <div class="screen-content">
 
-            <div class="final-heart">♡</div>
+            <div class="final-heart">
+                ♡
+            </div>
 
-            <p class="eyebrow">okay, that's everything...</p>
+            <p class="eyebrow">
+                okay, that's everything...
+            </p>
 
             <h2>
                 It's a date! 🥹☕
@@ -535,7 +560,9 @@
                 ✦ ♡ ✦
             </div>
 
-            <h3>Happy 28th, bestie!</h3>
+            <h3>
+                Happy 28th, bestie!
+            </h3>
 
             <p class="final-date">
                 See you on October 9. ♡
@@ -543,7 +570,9 @@
 
         </div>
 
-        <div class="screen-number">07 / 07</div>
+        <div class="screen-number">
+            07 / 07
+        </div>
 
     </section>
 
