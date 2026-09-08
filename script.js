@@ -1,43 +1,28 @@
-/* =========================================
-   SCREEN NAVIGATION
-========================================= */
-
 const screens = document.querySelectorAll(".screen");
-
-const nextButtons =
-    document.querySelectorAll(".next-button");
+const nextButtons = document.querySelectorAll(".next-button");
 
 
 function showScreen(screenId) {
 
-    screens.forEach(function (screen) {
-
+    screens.forEach(function(screen) {
         screen.classList.remove("active");
-
     });
 
-    const nextScreen =
-        document.getElementById(screenId);
+    const target = document.getElementById(screenId);
 
-    if (nextScreen) {
-
-        nextScreen.classList.add("active");
-
+    if (target) {
+        target.classList.add("active");
     }
-
 }
 
 
-/* =========================================
-   NEXT BUTTONS
-========================================= */
+/* NEXT BUTTONS */
 
-nextButtons.forEach(function (button) {
+nextButtons.forEach(function(button) {
 
-    button.addEventListener("click", function () {
+    button.addEventListener("click", function() {
 
-        const nextScreen =
-            button.getAttribute("data-next");
+        const nextScreen = button.dataset.next;
 
         showScreen(nextScreen);
 
@@ -46,18 +31,11 @@ nextButtons.forEach(function (button) {
 });
 
 
-/* =========================================
-   BIRTHDAY REVEAL
-========================================= */
+/* BIRTHDAY */
 
-const birthdayStep1 =
-    document.getElementById("birthdayStep1");
-
-const birthdayStep2 =
-    document.getElementById("birthdayStep2");
-
-const birthdayStep3 =
-    document.getElementById("birthdayStep3");
+const birthdayStep1 = document.getElementById("birthdayStep1");
+const birthdayStep2 = document.getElementById("birthdayStep2");
+const birthdayStep3 = document.getElementById("birthdayStep3");
 
 const birthdayRevealButton =
     document.getElementById("birthdayRevealButton");
@@ -69,53 +47,28 @@ const birthdayMoreButton =
 function showBirthdayStep(step) {
 
     birthdayStep1.classList.remove("active");
-
     birthdayStep2.classList.remove("active");
-
     birthdayStep3.classList.remove("active");
 
     step.classList.add("active");
-
 }
 
 
-/* STEP 1 */
+birthdayRevealButton.addEventListener("click", function() {
 
-if (birthdayRevealButton) {
+    showBirthdayStep(birthdayStep2);
 
-    birthdayRevealButton.addEventListener(
-        "click",
-        function () {
-
-            showBirthdayStep(birthdayStep2);
-
-            createConfetti();
-
-        }
-    );
-
-}
+});
 
 
-/* STEP 2 */
+birthdayMoreButton.addEventListener("click", function() {
 
-if (birthdayMoreButton) {
+    showBirthdayStep(birthdayStep3);
 
-    birthdayMoreButton.addEventListener(
-        "click",
-        function () {
-
-            showBirthdayStep(birthdayStep3);
-
-        }
-    );
-
-}
+});
 
 
-/* =========================================
-   GIFT BOX
-========================================= */
+/* GIFT */
 
 const giftWrapper =
     document.getElementById("giftWrapper");
@@ -126,51 +79,23 @@ const giftMessage =
 const giftHint =
     document.getElementById("giftHint");
 
-let giftOpened = false;
+
+giftWrapper.addEventListener("click", function() {
+
+    giftWrapper.classList.add("open");
+
+    giftHint.style.display = "none";
+
+    setTimeout(function() {
+
+        giftMessage.classList.add("show");
+
+    }, 700);
+
+});
 
 
-if (giftWrapper) {
-
-    giftWrapper.addEventListener(
-        "click",
-        function () {
-
-            if (giftOpened) {
-                return;
-            }
-
-            giftOpened = true;
-
-            giftWrapper.classList.add("open");
-
-            if (giftHint) {
-
-                giftHint.style.display = "none";
-
-            }
-
-            createConfetti();
-
-
-            setTimeout(function () {
-
-                if (giftMessage) {
-
-                    giftMessage.classList.add("show");
-
-                }
-
-            }, 800);
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   ACCEPT DATE
-========================================= */
+/* DATE */
 
 const acceptButton =
     document.getElementById("acceptButton");
@@ -179,117 +104,20 @@ const acceptedMessage =
     document.getElementById("acceptedMessage");
 
 
-if (acceptButton) {
+acceptButton.addEventListener("click", function() {
 
-    acceptButton.addEventListener(
-        "click",
-        function () {
+    acceptButton.innerText =
+        "IT'S A DATE! ☕♡";
 
-            acceptButton.innerText =
-                "IT'S A DATE! ☕♡";
+    acceptButton.disabled = true;
 
-            acceptButton.disabled = true;
+    acceptedMessage.innerText =
+        "YAAAY! See you on October 9! 🥹";
 
-            acceptedMessage.innerText =
-                "YAAAY! See you on October 9! 🥹";
+    setTimeout(function() {
 
-            acceptButton.style.transform =
-                "scale(1.08)";
+        showScreen("final");
 
-            createConfetti();
+    }, 1800);
 
-
-            setTimeout(function () {
-
-                showScreen("final");
-
-            }, 2000);
-
-        }
-    );
-
-}
-
-
-/* =========================================
-   CONFETTI
-========================================= */
-
-function createConfetti() {
-
-    const symbols = [
-        "♡",
-        "♥",
-        "✦",
-        "✧",
-        "•",
-        "✨",
-        "🎀"
-    ];
-
-
-    for (let i = 0; i < 90; i++) {
-
-        const confetti =
-            document.createElement("div");
-
-        confetti.classList.add(
-            "confetti-piece"
-        );
-
-        confetti.innerText =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-        confetti.style.left =
-            Math.random() * 100 + "vw";
-
-        confetti.style.fontSize =
-            Math.random() * 18 + 10 + "px";
-
-        const duration =
-            Math.random() * 2500 + 2000;
-
-        const rotation =
-            Math.random() * 720;
-
-        confetti.animate(
-
-            [
-                {
-                    transform:
-                        "translateY(0) rotate(0deg)",
-                    opacity: 1
-                },
-
-                {
-                    transform:
-                        `translateY(110vh) rotate(${rotation}deg)`,
-                    opacity: 0
-                }
-
-            ],
-
-            {
-                duration: duration,
-                easing: "ease-out"
-            }
-
-        );
-
-        document.body.appendChild(confetti);
-
-
-        setTimeout(function () {
-
-            confetti.remove();
-
-        }, duration);
-
-    }
-
-}
+});
