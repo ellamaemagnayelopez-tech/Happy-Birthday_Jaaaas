@@ -121,3 +121,64 @@ acceptButton.addEventListener("click", function() {
     }, 1800);
 
 });
+
+/* =========================================
+   BACKGROUND MUSIC
+========================================= */
+
+const bgMusic = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+
+bgMusic.volume = 0.35;
+
+let musicPlaying = false;
+
+
+/* START MUSIC */
+
+function startMusic() {
+
+    if (!musicPlaying) {
+
+        bgMusic.play()
+            .then(function() {
+
+                musicPlaying = true;
+
+                musicButton.innerText = "♫ Music On";
+
+            })
+            .catch(function(error) {
+
+                console.log("Music could not start:", error);
+
+            });
+
+    }
+
+}
+
+
+/* MUSIC BUTTON */
+
+musicButton.addEventListener("click", function() {
+
+    if (musicPlaying) {
+
+        bgMusic.pause();
+
+        musicPlaying = false;
+
+        musicButton.innerText = "♫ Music Off";
+
+    } else {
+
+        bgMusic.play();
+
+        musicPlaying = true;
+
+        musicButton.innerText = "♫ Music On";
+
+    }
+
+});
