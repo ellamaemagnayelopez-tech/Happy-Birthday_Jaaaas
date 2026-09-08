@@ -1,6 +1,6 @@
-/* =========================
+/* =========================================
    SCREEN NAVIGATION
-========================= */
+========================================= */
 
 const screens = document.querySelectorAll(".screen");
 
@@ -28,9 +28,9 @@ function showScreen(screenId) {
 }
 
 
-/* =========================
+/* =========================================
    NEXT BUTTONS
-========================= */
+========================================= */
 
 nextButtons.forEach(function (button) {
 
@@ -46,9 +46,9 @@ nextButtons.forEach(function (button) {
 });
 
 
-/* =========================
+/* =========================================
    BIRTHDAY REVEAL
-========================= */
+========================================= */
 
 const birthdayStep1 =
     document.getElementById("birthdayStep1");
@@ -58,7 +58,6 @@ const birthdayStep2 =
 
 const birthdayStep3 =
     document.getElementById("birthdayStep3");
-
 
 const birthdayRevealButton =
     document.getElementById("birthdayRevealButton");
@@ -80,7 +79,7 @@ function showBirthdayStep(step) {
 }
 
 
-/* STEP 1 → BIG 28 */
+/* STEP 1 */
 
 if (birthdayRevealButton) {
 
@@ -98,7 +97,7 @@ if (birthdayRevealButton) {
 }
 
 
-/* STEP 2 → SECRET MESSAGE */
+/* STEP 2 */
 
 if (birthdayMoreButton) {
 
@@ -114,9 +113,9 @@ if (birthdayMoreButton) {
 }
 
 
-/* =========================
+/* =========================================
    GIFT BOX
-========================= */
+========================================= */
 
 const giftWrapper =
     document.getElementById("giftWrapper");
@@ -126,7 +125,6 @@ const giftMessage =
 
 const giftHint =
     document.getElementById("giftHint");
-
 
 let giftOpened = false;
 
@@ -138,9 +136,7 @@ if (giftWrapper) {
         function () {
 
             if (giftOpened) {
-
                 return;
-
             }
 
             giftOpened = true;
@@ -172,9 +168,9 @@ if (giftWrapper) {
 }
 
 
-/* =========================
-   COFFEE DATE
-========================= */
+/* =========================================
+   ACCEPT DATE
+========================================= */
 
 const acceptButton =
     document.getElementById("acceptButton");
@@ -194,14 +190,11 @@ if (acceptButton) {
 
             acceptButton.disabled = true;
 
+            acceptedMessage.innerText =
+                "YAAAY! See you on October 9! 🥹";
 
-            if (acceptedMessage) {
-
-                acceptedMessage.innerText =
-                    "YAAAY! See you on October 9! 🥹";
-
-            }
-
+            acceptButton.style.transform =
+                "scale(1.08)";
 
             createConfetti();
 
@@ -210,7 +203,7 @@ if (acceptButton) {
 
                 showScreen("final");
 
-            }, 1800);
+            }, 2000);
 
         }
     );
@@ -218,9 +211,9 @@ if (acceptButton) {
 }
 
 
-/* =========================
+/* =========================================
    CONFETTI
-========================= */
+========================================= */
 
 function createConfetti() {
 
@@ -230,7 +223,8 @@ function createConfetti() {
         "✦",
         "✧",
         "•",
-        "✨"
+        "✨",
+        "🎀"
     ];
 
 
@@ -239,6 +233,9 @@ function createConfetti() {
         const confetti =
             document.createElement("div");
 
+        confetti.classList.add(
+            "confetti-piece"
+        );
 
         confetti.innerText =
             symbols[
@@ -248,63 +245,41 @@ function createConfetti() {
                 )
             ];
 
-
-        confetti.style.position =
-            "fixed";
-
         confetti.style.left =
             Math.random() * 100 + "vw";
 
-        confetti.style.top =
-            "-20px";
-
-        confetti.style.zIndex =
-            "9999";
-
-        confetti.style.pointerEvents =
-            "none";
-
         confetti.style.fontSize =
-            Math.random() * 20 + 10 + "px";
-
+            Math.random() * 18 + 10 + "px";
 
         const duration =
             Math.random() * 2500 + 2000;
 
+        const rotation =
+            Math.random() * 720;
 
         confetti.animate(
 
             [
                 {
-
                     transform:
                         "translateY(0) rotate(0deg)",
-
                     opacity: 1
-
                 },
 
                 {
-
                     transform:
-                        "translateY(110vh) rotate(720deg)",
-
+                        `translateY(110vh) rotate(${rotation}deg)`,
                     opacity: 0
-
                 }
 
             ],
 
             {
-
                 duration: duration,
-
                 easing: "ease-out"
-
             }
 
         );
-
 
         document.body.appendChild(confetti);
 
