@@ -20,7 +20,9 @@ function showScreen(screenId) {
         document.getElementById(screenId);
 
     if (nextScreen) {
+
         nextScreen.classList.add("active");
+
     }
 
 }
@@ -61,11 +63,8 @@ const birthdayStep3 =
 const birthdayRevealButton =
     document.getElementById("birthdayRevealButton");
 
-const planRevealButton =
-    document.getElementById("planRevealButton");
-
-const acceptDateButton =
-    document.getElementById("acceptDateButton");
+const birthdayMoreButton =
+    document.getElementById("birthdayMoreButton");
 
 
 function showBirthdayStep(step) {
@@ -76,13 +75,12 @@ function showBirthdayStep(step) {
 
     birthdayStep3.classList.remove("active");
 
-
     step.classList.add("active");
 
 }
 
 
-/* STEP 1 → BIRTHDAY REVEAL */
+/* STEP 1 → BIG 28 */
 
 if (birthdayRevealButton) {
 
@@ -100,43 +98,15 @@ if (birthdayRevealButton) {
 }
 
 
-/* BIRTHDAY → DATE PLAN */
+/* STEP 2 → SECRET MESSAGE */
 
-if (planRevealButton) {
+if (birthdayMoreButton) {
 
-    planRevealButton.addEventListener(
+    birthdayMoreButton.addEventListener(
         "click",
         function () {
 
             showBirthdayStep(birthdayStep3);
-
-        }
-    );
-
-}
-
-
-/* ACCEPT THE DATE */
-
-if (acceptDateButton) {
-
-    acceptDateButton.addEventListener(
-        "click",
-        function () {
-
-            acceptDateButton.innerText =
-                "IT'S A DATE! ☕♡";
-
-            acceptDateButton.disabled = true;
-
-            createConfetti();
-
-
-            setTimeout(function () {
-
-                showScreen("reasons");
-
-            }, 1200);
 
         }
     );
@@ -168,7 +138,9 @@ if (giftWrapper) {
         function () {
 
             if (giftOpened) {
+
                 return;
+
             }
 
             giftOpened = true;
@@ -176,7 +148,9 @@ if (giftWrapper) {
             giftWrapper.classList.add("open");
 
             if (giftHint) {
+
                 giftHint.style.display = "none";
+
             }
 
             createConfetti();
@@ -185,7 +159,9 @@ if (giftWrapper) {
             setTimeout(function () {
 
                 if (giftMessage) {
+
                     giftMessage.classList.add("show");
+
                 }
 
             }, 800);
@@ -253,11 +229,12 @@ function createConfetti() {
         "♥",
         "✦",
         "✧",
-        "•"
+        "•",
+        "✨"
     ];
 
 
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 90; i++) {
 
         const confetti =
             document.createElement("div");
@@ -272,7 +249,8 @@ function createConfetti() {
             ];
 
 
-        confetti.style.position = "fixed";
+        confetti.style.position =
+            "fixed";
 
         confetti.style.left =
             Math.random() * 100 + "vw";
@@ -298,24 +276,31 @@ function createConfetti() {
 
             [
                 {
+
                     transform:
                         "translateY(0) rotate(0deg)",
 
                     opacity: 1
+
                 },
 
                 {
+
                     transform:
                         "translateY(110vh) rotate(720deg)",
 
                     opacity: 0
+
                 }
+
             ],
 
             {
+
                 duration: duration,
 
                 easing: "ease-out"
+
             }
 
         );
