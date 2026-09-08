@@ -135,6 +135,7 @@ const bgMusic = document.getElementById("bgMusic");
 const musicButton = document.getElementById("musicButton");
 
 bgMusic.volume = 0.35;
+bgMusic.load();
 
 let musicPlaying = false;
 
