@@ -1892,3 +1892,120 @@ body {
     }
 
 }
+/* =========================================
+   DATE DETAILS - CLEAN VERSION
+========================================= */
+
+.date-card {
+    width: min(500px, 88vw);
+
+    background: rgba(255, 253, 251, 0.95);
+
+    border: 1px solid #ead8d4;
+
+    border-radius: 20px;
+
+    padding: 8px 25px;
+
+    box-shadow:
+        0 20px 45px rgba(92, 65, 69, 0.12);
+
+    margin: 25px auto;
+}
+
+
+.date-row {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 14px 5px;
+
+    text-align: left;
+}
+
+
+.date-icon {
+    width: 45px;
+    height: 45px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f9e8e5;
+
+    border-radius: 50%;
+
+    font-size: 1.25rem;
+}
+
+
+.date-info span {
+    display: block;
+
+    font-size: 0.55rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #a58b8d;
+
+    margin-bottom: 4px;
+}
+
+
+.date-info strong {
+    display: block;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    color: #5c4145;
+}
+
+
+.date-divider {
+    height: 1px;
+
+    background: #ead8d4;
+
+    margin-left: 63px;
+}
+
+
+@media (max-width: 600px) {
+
+    .date-card {
+        padding: 5px 18px;
+    }
+
+    .date-row {
+        gap: 14px;
+
+        padding: 12px 2px;
+    }
+
+    .date-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 1.1rem;
+    }
+
+    .date-divider {
+        margin-left: 54px;
+    }
+
+    .date-info strong {
+        font-size: 0.82rem;
+    }
+
+}
