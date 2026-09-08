@@ -26,10 +26,13 @@ nextButtons.forEach(function(button) {
 
         showScreen(nextScreen);
 
+        if (nextScreen === "birthday") {
+            startMusic();
+        }
+
     });
 
 });
-
 
 /* BIRTHDAY */
 
