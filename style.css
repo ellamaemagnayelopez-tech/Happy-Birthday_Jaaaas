@@ -23,19 +23,19 @@ body {
 
 
 /* =========================================
-   GENERAL SCREEN
+   SCREEN
 ========================================= */
 
 .screen {
     position: fixed;
     inset: 0;
 
+    width: 100%;
+    height: 100vh;
+
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 100%;
-    height: 100vh;
 
     padding: 40px 25px;
 
@@ -46,11 +46,12 @@ body {
     transform: scale(1.03);
 
     transition:
-        opacity 0.7s ease,
-        visibility 0.7s ease,
-        transform 0.7s ease;
+        opacity 0.6s ease,
+        visibility 0.6s ease,
+        transform 0.6s ease;
 
     overflow: hidden;
+
     z-index: 0;
 }
 
@@ -60,14 +61,23 @@ body {
     pointer-events: auto;
 
     transform: scale(1);
+
     z-index: 10;
 }
 
+
+/* =========================================
+   CONTENT
+========================================= */
+
 .screen-content {
-    width: min(850px, 94vw);
-    text-align: center;
     position: relative;
-    z-index: 3;
+
+    width: min(850px, 94vw);
+
+    text-align: center;
+
+    z-index: 20;
 }
 
 .screen-content.wide {
@@ -79,15 +89,6 @@ body {
    TYPOGRAPHY
 ========================================= */
 
-.eyebrow {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #a56b73;
-    margin-bottom: 18px;
-}
-
 h1,
 h2,
 h3 {
@@ -97,6 +98,7 @@ h3 {
 h1 {
     font-size: clamp(3rem, 7vw, 6rem);
     line-height: 0.95;
+
     color: #5c4145;
 }
 
@@ -106,10 +108,27 @@ h2 span {
     color: #b8757d;
 }
 
+.eyebrow {
+    font-size: 0.68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #a56b73;
+
+    margin-bottom: 18px;
+}
+
 .description {
     max-width: 480px;
+
     margin: 25px auto 30px;
+
     color: #765d60;
+
     line-height: 1.7;
 }
 
@@ -121,17 +140,24 @@ h2 span {
 .main-button {
     position: relative;
 
+    z-index: 50;
+
     border: none;
+
     border-radius: 50px;
 
     padding: 15px 27px;
 
     background: #5c4145;
+
     color: white;
 
     font-family: "DM Sans", sans-serif;
+
     font-size: 0.78rem;
+
     font-weight: 700;
+
     letter-spacing: 1px;
 
     cursor: pointer;
@@ -141,14 +167,12 @@ h2 span {
 
     transition:
         transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.25s ease;
-
-    overflow: hidden;
+        box-shadow 0.25s ease;
 }
 
 .main-button:hover {
     transform: translateY(-3px);
+
     box-shadow:
         0 16px 30px rgba(92, 65, 69, 0.25);
 }
@@ -159,11 +183,8 @@ h2 span {
 
 .main-button span {
     display: inline;
-    margin-left: 8px;
-}
 
-.main-button:disabled {
-    cursor: default;
+    margin-left: 8px;
 }
 
 
@@ -178,9 +199,12 @@ h2 span {
     right: 30px;
 
     font-size: 0.65rem;
+
     letter-spacing: 2px;
 
     color: #a58b8d;
+
+    z-index: 30;
 }
 
 
@@ -199,9 +223,7 @@ h2 span {
 
     pointer-events: none;
 
-    z-index: 20;
-
-    animation: floatHeart 6s ease-in-out infinite;
+    z-index: 100;
 }
 
 .heart-1 {
@@ -212,25 +234,11 @@ h2 span {
 .heart-2 {
     top: 70%;
     right: 8%;
-    animation-delay: 2s;
 }
 
 .heart-3 {
     bottom: 10%;
     left: 15%;
-    animation-delay: 4s;
-}
-
-@keyframes floatHeart {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0);
-    }
-
-    50% {
-        transform: translateY(-25px) rotate(10deg);
-    }
 }
 
 
@@ -250,6 +258,7 @@ h2 span {
 
 .envelope {
     font-size: 5rem;
+
     margin: 10px 0 25px;
 
     animation: envelopeFloat 3s ease-in-out infinite;
@@ -272,12 +281,12 @@ h2 span {
    BIRTHDAY
 ========================================= */
 
-.birthday-screen {
+#birthday {
     background:
         radial-gradient(
             circle at center,
             #fff8f5 0%,
-            #f9e8e5 45%,
+            #f9e8e5 50%,
             #f2d6d2 100%
         );
 }
@@ -290,11 +299,11 @@ h2 span {
 
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.4);
 
     filter: blur(60px);
 
-    animation: birthdayGlow 4s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .sparkle {
@@ -306,7 +315,7 @@ h2 span {
 
     opacity: 0.5;
 
-    animation: sparkleFloat 4s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .sparkle-1 {
@@ -317,20 +326,22 @@ h2 span {
 .sparkle-2 {
     top: 25%;
     right: 15%;
-    animation-delay: 1s;
 }
 
 .sparkle-3 {
     bottom: 20%;
     left: 20%;
-    animation-delay: 2s;
 }
 
 .sparkle-4 {
     bottom: 15%;
     right: 20%;
-    animation-delay: 3s;
 }
+
+
+/* =========================================
+   BIRTHDAY STEPS
+========================================= */
 
 .birthday-step {
     position: absolute;
@@ -338,9 +349,11 @@ h2 span {
     inset: 0;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 30px;
@@ -348,28 +361,36 @@ h2 span {
     text-align: center;
 
     opacity: 0;
+
     visibility: hidden;
 
-    transform: scale(0.85) translateY(30px);
+    pointer-events: none;
+
+    transform: scale(0.9);
 
     transition:
-        opacity 0.7s ease,
-        transform 0.7s ease,
-        visibility 0.7s ease;
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        visibility 0.5s ease;
 
-    z-index: 2;
+    z-index: 20;
 }
 
 .birthday-step.active {
     opacity: 1;
+
     visibility: visible;
 
-    transform: scale(1) translateY(0);
+    pointer-events: auto;
+
+    transform: scale(1);
 }
 
 .small-label {
     font-size: 0.7rem;
+
     letter-spacing: 4px;
+
     font-weight: 700;
 
     color: #a56b73;
@@ -379,12 +400,11 @@ h2 span {
 
 .question {
     font-size: clamp(4rem, 10vw, 7rem);
-
-    animation: questionFloat 3s ease-in-out infinite;
 }
 
 .question-text {
     font-size: 1.15rem;
+
     color: #765d60;
 
     margin: 10px 0 30px;
@@ -393,21 +413,13 @@ h2 span {
 .big-number {
     font-family: "Playfair Display", serif;
 
-    font-size: clamp(10rem, 25vw, 18rem);
+    font-size: clamp(9rem, 22vw, 16rem);
 
     line-height: 0.75;
 
     color: #b8757d;
 
     margin: 10px 0 30px;
-
-    text-shadow:
-        0 0 10px rgba(184, 117, 125, .15),
-        0 0 30px rgba(184, 117, 125, .15),
-        8px 8px 0 #f3d9d5;
-
-    animation:
-        numberReveal 1s cubic-bezier(.17, .67, .31, 1.5);
 }
 
 .birthday-title {
@@ -430,8 +442,6 @@ h2 span {
     font-size: 4.5rem;
 
     margin-bottom: 15px;
-
-    animation: giftBounce 2s ease-in-out infinite;
 }
 
 .surprise-title {
@@ -452,76 +462,6 @@ h2 span {
     margin-bottom: 30px;
 }
 
-@keyframes numberReveal {
-
-    0% {
-        transform: scale(.1) rotate(-8deg);
-        opacity: 0;
-    }
-
-    60% {
-        transform: scale(1.15) rotate(3deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1) rotate(0);
-        opacity: 1;
-    }
-}
-
-@keyframes questionFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-@keyframes sparkleFloat {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0);
-        opacity: .3;
-    }
-
-    50% {
-        transform: translateY(-25px) rotate(20deg);
-        opacity: .9;
-    }
-}
-
-@keyframes birthdayGlow {
-
-    0%,
-    100% {
-        transform: scale(.9);
-        opacity: .4;
-    }
-
-    50% {
-        transform: scale(1.2);
-        opacity: .7;
-    }
-}
-
-@keyframes giftBounce {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(0);
-    }
-
-    50% {
-        transform: translateY(-12px) rotate(3deg);
-    }
-}
-
 
 /* =========================================
    REASONS
@@ -533,19 +473,20 @@ h2 span {
 
 .section-title {
     font-size: clamp(2.4rem, 5vw, 4rem);
+
     line-height: 1;
 }
 
 .section-description {
     color: #765d60;
+
     margin: 15px auto 25px;
 }
 
 .reasons-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 
     gap: 15px;
 
@@ -561,22 +502,11 @@ h2 span {
 
     padding: 20px;
 
-    background: rgba(255, 253, 251, .8);
+    background: rgba(255, 253, 251, 0.8);
 
     border: 1px solid #ead8d4;
 
     border-radius: 18px;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-}
-
-.reason-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 15px 30px rgba(92, 65, 69, .1);
 }
 
 .reason-number {
@@ -585,11 +515,9 @@ h2 span {
     top: 12px;
     right: 15px;
 
-    font-size: .55rem;
+    font-size: 0.55rem;
 
     color: #bba1a3;
-
-    letter-spacing: 1px;
 }
 
 .reason-icon {
@@ -607,7 +535,7 @@ h2 span {
 .reason-card p {
     color: #765d60;
 
-    font-size: .78rem;
+    font-size: 0.78rem;
 
     line-height: 1.55;
 }
@@ -641,9 +569,9 @@ h2 span {
     border-radius: 8px;
 
     box-shadow:
-        0 25px 60px rgba(92, 65, 69, .16);
+        0 25px 60px rgba(92, 65, 69, 0.16);
 
-    z-index: 3;
+    z-index: 30;
 }
 
 .tape {
@@ -659,7 +587,7 @@ h2 span {
 
     background: #e5c5c0;
 
-    opacity: .8;
+    opacity: 0.8;
 }
 
 .letter h2 {
@@ -675,7 +603,7 @@ h2 span {
 
     color: #765d60;
 
-    font-size: .9rem;
+    font-size: 0.9rem;
 
     line-height: 1.7;
 }
@@ -726,13 +654,7 @@ h2 span {
 
     cursor: pointer;
 
-    transition: transform .3s ease;
-
-    z-index: 5;
-}
-
-.gift-wrapper:hover {
-    transform: translateY(-8px);
+    z-index: 40;
 }
 
 .gift-body {
@@ -744,6 +666,7 @@ h2 span {
     height: 110px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -752,9 +675,6 @@ h2 span {
     background: #b8757d;
 
     border-radius: 5px;
-
-    box-shadow:
-        0 15px 25px rgba(92, 65, 69, .2);
 }
 
 .gift-lid {
@@ -771,9 +691,6 @@ h2 span {
     border-radius: 5px;
 
     z-index: 2;
-
-    transition:
-        transform .8s cubic-bezier(.68, -.55, .27, 1.55);
 }
 
 .ribbon {
@@ -789,16 +706,10 @@ h2 span {
     background: #ead8d4;
 }
 
-.gift-wrapper.open .gift-lid {
-    transform:
-        translateY(-70px)
-        rotate(12deg);
-}
-
 .gift-hint {
     color: #a56b73;
 
-    font-size: .7rem;
+    font-size: 0.7rem;
 
     letter-spacing: 2px;
 }
@@ -809,15 +720,17 @@ h2 span {
     max-width: 550px;
 
     opacity: 0;
+
     transform: translateY(20px);
 
-    transition: .6s ease;
-
     pointer-events: none;
+
+    transition: 0.6s ease;
 }
 
 .gift-message.show {
     opacity: 1;
+
     transform: translateY(0);
 
     pointer-events: auto;
@@ -837,7 +750,7 @@ h2 span {
 
 
 /* =========================================
-   COFFEE / DATE PAGE
+   COFFEE
 ========================================= */
 
 #coffee {
@@ -857,33 +770,34 @@ h2 span {
 
     text-align: center;
 
-    z-index: 3;
+    z-index: 30;
+}
+
+.coffee-background-circle {
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.3);
+
+    filter: blur(50px);
+
+    pointer-events: none;
 }
 
 .coffee-icon {
     font-size: 3.5rem;
 
     margin-bottom: 5px;
-
-    animation: coffeeFloat 3s ease-in-out infinite;
-}
-
-@keyframes coffeeFloat {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-7px) rotate(2deg);
-    }
 }
 
 .coffee-content h2 {
     font-size: clamp(2.2rem, 5vw, 3.8rem);
 
-    line-height: .95;
+    line-height: 0.95;
 
     margin-bottom: 15px;
 }
@@ -895,14 +809,14 @@ h2 span {
 
     color: #765d60;
 
-    font-size: .9rem;
+    font-size: 0.9rem;
 
     line-height: 1.5;
 }
 
 
 /* =========================================
-   NEW DATE CARD
+   DATE CARD
 ========================================= */
 
 .date-card {
@@ -912,45 +826,30 @@ h2 span {
 
     padding: 20px 25px;
 
-    background:
-        rgba(255, 253, 251, .97);
+    background: rgba(255, 253, 251, 0.97);
 
     border: 1px solid #ead8d4;
 
     border-radius: 22px;
 
     box-shadow:
-        0 20px 45px rgba(92, 65, 69, .12);
+        0 20px 45px rgba(92, 65, 69, 0.12);
 
     text-align: left;
-
-    animation: dateCardIn .8s ease both;
-}
-
-@keyframes dateCardIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(20px) scale(.97);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
 }
 
 .date-header {
     display: flex;
 
     align-items: center;
+
     justify-content: space-between;
 
     padding-bottom: 12px;
 
     color: #a56b73;
 
-    font-size: .58rem;
+    font-size: 0.58rem;
 
     font-weight: 700;
 
@@ -976,7 +875,7 @@ h2 span {
 
     font-size: 5rem;
 
-    line-height: .8;
+    line-height: 0.8;
 
     color: #b8757d;
 }
@@ -996,7 +895,7 @@ h2 span {
 
     margin-top: 3px;
 
-    font-size: .75rem;
+    font-size: 0.75rem;
 
     color: #a58b8d;
 }
@@ -1033,8 +932,6 @@ h2 span {
     background: #f8e8e5;
 
     border-radius: 50%;
-
-    font-size: 1rem;
 }
 
 .detail-row small {
@@ -1042,7 +939,7 @@ h2 span {
 
     margin-bottom: 3px;
 
-    font-size: .52rem;
+    font-size: 0.52rem;
 
     font-weight: 700;
 
@@ -1054,7 +951,7 @@ h2 span {
 .detail-row strong {
     display: block;
 
-    font-size: .82rem;
+    font-size: 0.82rem;
 
     font-weight: 600;
 
@@ -1064,7 +961,7 @@ h2 span {
 .date-message {
     color: #765d60;
 
-    font-size: .75rem;
+    font-size: 0.75rem;
 
     line-height: 1.5;
 
@@ -1082,7 +979,7 @@ h2 span {
 
     margin-top: 10px;
 
-    font-size: .8rem;
+    font-size: 0.8rem;
 
     color: #a56b73;
 
@@ -1104,25 +1001,25 @@ h2 span {
         );
 }
 
+.final-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.3);
+
+    filter: blur(60px);
+
+    pointer-events: none;
+}
+
 .final-heart {
     font-size: 5rem;
 
     color: #b8757d;
-
-    animation:
-        finalHeart 1.5s ease-in-out infinite;
-}
-
-@keyframes finalHeart {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
 }
 
 .final-screen h2 {
@@ -1163,7 +1060,7 @@ h2 span {
 
 
 /* =========================================
-   CONFETTI ANIMATION SUPPORT
+   CONFETTI
 ========================================= */
 
 .confetti-piece {
@@ -1187,11 +1084,6 @@ h2 span {
         padding: 25px 18px;
     }
 
-    .screen-number {
-        bottom: 15px;
-        right: 18px;
-    }
-
     .reasons-grid {
         grid-template-columns: repeat(2, 1fr);
 
@@ -1206,74 +1098,14 @@ h2 span {
         padding: 15px;
     }
 
-    .reason-card h3 {
-        font-size: .95rem;
-    }
-
-    .reason-card p {
-        font-size: .68rem;
-    }
-
     .letter {
         padding: 35px 25px 25px;
 
         max-height: 82vh;
     }
 
-    .date-card {
-        padding: 17px 20px;
-    }
-
-    .date-big {
-        font-size: 4rem;
-    }
-
-    .detail-row {
-        gap: 12px;
-    }
-
-    .detail-icon {
-        width: 36px;
-        height: 36px;
-    }
-
-    .detail-row strong {
-        font-size: .75rem;
-    }
-
     .coffee-content h2 {
         font-size: 2.2rem;
     }
-}
 
-
-@media (max-width: 450px) {
-
-    .reasons-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .reason-card {
-        min-height: 150px;
-    }
-
-    .reason-card p {
-        font-size: .63rem;
-    }
-
-    .date-main {
-        gap: 10px;
-    }
-
-    .date-big {
-        font-size: 3.6rem;
-    }
-
-    .date-month strong {
-        font-size: .85rem;
-    }
-}
-.birthday-glow,
-.sparkle {
-    pointer-events: none;
 }
