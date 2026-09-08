@@ -63,6 +63,8 @@ birthdayRevealButton.addEventListener("click", function() {
 
     showBirthdayStep(birthdayStep2);
 
+    createConfetti();
+
 });
 
 
@@ -188,3 +190,46 @@ musicButton.addEventListener("click", function() {
     }
 
 });
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+function createConfetti() {
+
+    const pieces = 80;
+
+    for (let i = 0; i < pieces; i++) {
+
+        const piece = document.createElement("div");
+
+        piece.classList.add("confetti-piece");
+
+        piece.innerHTML =
+            ["✦", "♡", "●", "✧", "♥"][Math.floor(Math.random() * 5)];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.fontSize =
+            (Math.random() * 14 + 8) + "px";
+
+        piece.style.opacity =
+            Math.random() * 0.6 + 0.4;
+
+        const duration =
+            Math.random() * 2 + 2;
+
+        piece.style.animation =
+            `confettiFall ${duration}s linear forwards`;
+
+        document.body.appendChild(piece);
+
+        setTimeout(function() {
+
+            piece.remove();
+
+        }, duration * 1000);
+
+    }
+}
