@@ -1109,3 +1109,37 @@ h2 span {
     }
 
 }
+
+/* =========================================
+   MUSIC BUTTON
+========================================= */
+
+.music-button {
+    position: fixed;
+    top: 22px;
+    right: 25px;
+
+    z-index: 9999;
+
+    border: 1px solid #ead8d4;
+    border-radius: 30px;
+
+    padding: 10px 16px;
+
+    background: rgba(255, 253, 251, 0.9);
+    color: #765d60;
+
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(92, 65, 69, 0.12);
+
+    transition: 0.25s ease;
+}
+
+.music-button:hover {
+    transform: translateY(-2px);
+}
