@@ -27,8 +27,10 @@ nextButtons.forEach(function(button) {
         showScreen(nextScreen);
 
         if (nextScreen === "birthday") {
-            startMusic();
-        }
+    bgMusic.play().catch(function(error) {
+        console.log("Music waiting:", error);
+    });
+}
 
     });
 
