@@ -1,0 +1,672 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    background: #fff9f5;
+    color: #4b352b;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   COLORS / GENERAL
+========================= */
+
+:root {
+    --cream: #fff9f5;
+    --pink: #f6d7d9;
+    --dark-pink: #d77b88;
+    --brown: #8f5d47;
+    --dark: #49352a;
+    --paper: #fffdf9;
+}
+
+button {
+    border: none;
+    background: var(--brown);
+    color: white;
+
+    padding: 15px 30px;
+
+    border-radius: 30px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(100, 60, 40, 0.2);
+}
+
+.tiny-text {
+    font-family: "Pacifico", cursive;
+    color: var(--dark-pink);
+    font-size: 18px;
+}
+
+
+/* =========================
+   SCREENS
+========================= */
+
+.screen {
+    min-height: 100vh;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* =========================
+   OPENING
+========================= */
+
+#opening {
+    background:
+        radial-gradient(circle at 10% 20%, #f7dfe2, transparent 30%),
+        radial-gradient(circle at 90% 80%, #ead9ca, transparent 30%),
+        var(--cream);
+}
+
+.opening-content {
+    max-width: 600px;
+}
+
+.envelope {
+    font-size: 100px;
+
+    margin: 30px;
+
+    cursor: pointer;
+
+    animation: float 2s ease-in-out infinite;
+}
+
+.opening-content h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(45px, 7vw, 75px);
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+.opening-content h1 span {
+    color: var(--brown);
+}
+
+.opening-content p:not(.tiny-text) {
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+#birthday {
+    background: #f9e4e5;
+}
+
+.birthday-content {
+    max-width: 700px;
+}
+
+.reveal-text {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.number {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(140px, 25vw, 280px);
+
+    line-height: 0.9;
+
+    color: var(--brown);
+
+    animation: numberPop 1s ease;
+}
+
+.birthday-content h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    color: var(--dark);
+}
+
+.subtitle {
+    font-family: "Pacifico", cursive;
+
+    color: var(--dark-pink);
+
+    margin: 20px 0 35px;
+}
+
+
+/* =========================
+   NORMAL SECTIONS
+========================= */
+
+.normal-section {
+    min-height: 100vh;
+
+    padding: 100px 8%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.section-content {
+    max-width: 900px;
+    width: 100%;
+}
+
+.normal-section h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(40px, 6vw, 65px);
+
+    line-height: 1.1;
+
+    margin: 20px 0 50px;
+}
+
+.normal-section h2 span {
+    color: var(--brown);
+}
+
+
+/* =========================
+   REASONS
+========================= */
+
+#reasons {
+    background: var(--cream);
+}
+
+.reason-container {
+    display: flex;
+    justify-content: center;
+}
+
+.reason-card {
+    background: white;
+
+    max-width: 600px;
+
+    min-height: 350px;
+
+    padding: 50px;
+
+    border-radius: 25px;
+
+    box-shadow: 0 20px 50px rgba(70, 40, 25, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    animation: cardAppear 0.5s ease;
+}
+
+.reason-number {
+    font-family: "Playfair Display", serif;
+
+    font-size: 50px;
+
+    color: var(--pink);
+
+    margin-bottom: 15px;
+}
+
+.reason-card h3 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+}
+
+.reason-card p {
+    line-height: 1.7;
+
+    max-width: 450px;
+
+    margin-bottom: 30px;
+}
+
+.reason-counter {
+    margin-top: 20px;
+
+    color: #a28a7d;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+.letter-section {
+    background: #f8e6df;
+}
+
+.letter-paper {
+    max-width: 750px;
+
+    background: var(--paper);
+
+    padding: 60px;
+
+    box-shadow: 0 20px 50px rgba(70, 40, 25, 0.12);
+
+    transform: rotate(-1deg);
+
+    position: relative;
+}
+
+.letter-paper::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: 20px;
+    right: 30px;
+
+    color: var(--dark-pink);
+
+    font-size: 30px;
+}
+
+.letter-paper h2 {
+    margin-bottom: 35px;
+}
+
+.letter-text {
+    text-align: left;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+.letter-text p {
+    margin-bottom: 18px;
+}
+
+.signature {
+    font-family: "Pacifico", cursive;
+
+    color: var(--dark-pink);
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-section {
+    background:
+        radial-gradient(circle at center, #f4ded1, transparent 50%),
+        #ead3c0;
+}
+
+.gift-content h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 60px;
+
+    margin: 20px 0;
+}
+
+.gift-box {
+    width: 180px;
+    height: 180px;
+
+    margin: 50px auto 20px;
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.gift-box:hover {
+    transform: scale(1.1);
+}
+
+.gift-body {
+    width: 150px;
+    height: 120px;
+
+    background: #d77b88;
+
+    position: absolute;
+
+    bottom: 0;
+    left: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 60px;
+
+    border-radius: 5px;
+}
+
+.gift-lid {
+    width: 180px;
+    height: 45px;
+
+    background: #b96875;
+
+    position: absolute;
+
+    top: 35px;
+    left: 0;
+
+    z-index: 2;
+
+    border-radius: 5px;
+}
+
+.click-hint {
+    font-family: "Pacifico", cursive;
+
+    color: var(--dark-pink);
+
+    animation: bounce 1.5s infinite;
+}
+
+
+/* =========================
+   COFFEE
+========================= */
+
+.coffee-section {
+    background:
+        radial-gradient(circle at 20% 20%, #f3d9c6, transparent 25%),
+        radial-gradient(circle at 80% 80%, #f6d7d9, transparent 25%),
+        var(--cream);
+}
+
+.coffee-content {
+    max-width: 750px;
+}
+
+.coffee-cup {
+    font-size: 110px;
+
+    margin: 20px;
+
+    animation: coffeeFloat 2s infinite;
+}
+
+.coffee-content h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(40px, 7vw, 75px);
+
+    line-height: 1;
+
+    color: var(--brown);
+}
+
+.coffee-subtitle {
+    font-size: 18px;
+
+    margin: 20px auto 35px;
+
+    max-width: 500px;
+
+    line-height: 1.6;
+}
+
+.date-card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    box-shadow: 0 15px 35px rgba(70, 40, 25, 0.1);
+
+    margin-bottom: 30px;
+}
+
+.date-card div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.date-card span {
+    font-size: 25px;
+}
+
+.date-message {
+    margin-bottom: 25px;
+
+    line-height: 1.6;
+}
+
+#accepted {
+    margin-top: 20px;
+
+    font-family: "Pacifico", cursive;
+
+    color: var(--dark-pink);
+
+    font-size: 20px;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-section {
+    background: #49352a;
+
+    color: white;
+}
+
+.big-heart {
+    font-size: 100px;
+
+    color: #f6c8ce;
+
+    animation: heartbeat 1.3s infinite;
+}
+
+.final-content h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(50px, 8vw, 90px);
+
+    margin: 20px 0;
+}
+
+.final-content p {
+    max-width: 500px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    font-size: 18px;
+}
+
+.final-content h2 {
+    font-family: "Pacifico", cursive;
+
+    color: #f6c8ce;
+
+    margin-top: 30px;
+}
+
+.small-final {
+    margin-top: 20px !important;
+
+    font-size: 14px !important;
+
+    opacity: 0.7;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes numberPop {
+
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes coffeeFloat {
+
+    0%, 100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-10px);
+    }
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    20% {
+        transform: scale(1.15);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+    .letter-paper {
+        padding: 35px 25px;
+    }
+
+    .reason-card {
+        padding: 35px 25px;
+    }
+
+    .date-card {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .gift-content h2 {
+        font-size: 45px;
+    }
+}
