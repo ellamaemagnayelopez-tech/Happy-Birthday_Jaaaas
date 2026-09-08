@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -19,268 +18,196 @@
 
 <body>
 
-    <!-- =========================
-         FLOATING DECORATIONS
-    ========================== -->
-
+    <!-- FLOATING HEARTS -->
     <div class="floating-heart heart-1">♡</div>
     <div class="floating-heart heart-2">♡</div>
     <div class="floating-heart heart-3">♡</div>
 
 
     <!-- =========================
-         HERO / OPENING
+         SCREEN 1 - OPENING
     ========================== -->
 
-    <section class="hero" id="home">
+    <section class="screen active" id="home">
 
-        <div class="hero-content">
+        <div class="screen-content">
 
-            <p class="eyebrow">
-                A little something for you...
-            </p>
+            <p class="eyebrow">A little something for you...</p>
 
-            <div class="envelope">
-                💌
-            </div>
+            <div class="envelope">💌</div>
 
             <h1>
                 I made something
                 <span>for you.</span>
             </h1>
 
-            <p class="hero-description">
-                Before anything else,
-                I just want you to know how happy
-                I am that you're here. ♡
+            <p class="description">
+                Before anything else, I just want you to know
+                how happy I am that you're here. ♡
             </p>
 
-            <a href="#birthday" class="main-button">
+            <button class="main-button next-button" data-next="birthday">
                 Open your surprise
-                <span>↓</span>
-            </a>
+                <span>→</span>
+            </button>
 
         </div>
 
-        <div class="scroll-hint">
-            scroll down ↓
-        </div>
+        <div class="screen-number">01 / 07</div>
 
     </section>
 
 
     <!-- =========================
-         BIRTHDAY REVEAL
+         SCREEN 2 - BIRTHDAY
     ========================== -->
 
-    <section class="birthday" id="birthday">
+    <section class="screen" id="birthday">
 
-        <div class="birthday-content">
+        <div class="screen-content">
 
-            <p class="eyebrow">
-                October 8, 2026
-            </p>
+            <p class="eyebrow">October 8, 2026</p>
 
             <p class="birthday-intro">
                 Today, someone very special turns...
             </p>
 
-            <div class="big-number">
-                28
-            </div>
+            <div class="big-number">28</div>
 
-            <h2>
-                HAPPY BIRTHDAY!
-            </h2>
+            <h2>HAPPY BIRTHDAY!</h2>
 
             <p class="birthday-subtitle">
                 to my favorite bestie ♡
             </p>
 
-            <a href="#reasons" class="text-button">
-                Okay, keep going →
-            </a>
+            <button class="text-button next-button" data-next="reasons">
+                I have something to tell you →
+            </button>
 
         </div>
+
+        <div class="screen-number">02 / 07</div>
 
     </section>
 
 
     <!-- =========================
-         REASONS
+         SCREEN 3 - REASONS
     ========================== -->
 
-    <section class="reasons" id="reasons">
+    <section class="screen" id="reasons">
 
-        <div class="section-header">
+        <div class="screen-content wide">
 
-            <p class="eyebrow">
-                28 years of being you
-            </p>
+            <p class="eyebrow">28 years of being you</p>
 
-            <h2>
+            <h2 class="section-title">
                 A few reasons
                 <span>why you're special.</span>
             </h2>
 
-            <p>
+            <p class="section-description">
                 I could probably write 28...
                 but we'd be here forever. 😂
             </p>
 
-        </div>
+            <div class="reasons-grid">
 
+                <div class="reason-card">
+                    <span class="reason-number">01</span>
+                    <div class="reason-icon">♡</div>
 
-        <div class="reasons-grid">
+                    <h3>You just get me.</h3>
 
-            <div class="reason-card">
-
-                <span class="reason-number">
-                    01
-                </span>
-
-                <div class="reason-icon">
-                    ♡
+                    <p>
+                        Kahit minsan wala na akong sense kausap,
+                        somehow naiintindihan mo pa rin. HAHAHA.
+                    </p>
                 </div>
 
-                <h3>
-                    You just get me.
-                </h3>
 
-                <p>
-                    Kahit minsan wala na akong sense kausap,
-                    somehow naiintindihan mo pa rin.
-                    HAHAHA.
-                </p>
+                <div class="reason-card">
+                    <span class="reason-number">02</span>
+                    <div class="reason-icon">✦</div>
+
+                    <h3>You make things fun.</h3>
+
+                    <p>
+                        Kahit simpleng labas lang,
+                        somehow nagiging memorable kapag kasama kita.
+                    </p>
+                </div>
+
+
+                <div class="reason-card">
+                    <span class="reason-number">03</span>
+                    <div class="reason-icon">☕</div>
+
+                    <h3>You listen.</h3>
+
+                    <p>
+                        Sa good days, bad days,
+                        at sa mga araw na kailangan lang natin mag-rant.
+                    </p>
+                </div>
+
+
+                <div class="reason-card">
+                    <span class="reason-number">04</span>
+                    <div class="reason-icon">♡</div>
+
+                    <h3>You know the real me.</h3>
+
+                    <p>
+                        You've seen the good, the bad,
+                        and the weird... and you're still here.
+                    </p>
+                </div>
+
+
+                <div class="reason-card">
+                    <span class="reason-number">05</span>
+                    <div class="reason-icon">✨</div>
+
+                    <h3>You're simply you.</h3>
+
+                    <p>
+                        And honestly, that's already more than
+                        enough reason to celebrate you.
+                    </p>
+                </div>
+
+
+                <div class="reason-card special-card">
+                    <span class="reason-number">06</span>
+                    <div class="reason-icon">🥹</div>
+
+                    <h3>I'm lucky to have you.</h3>
+
+                    <p>
+                        Out of all the people I could have met,
+                        I'm really glad life gave me you.
+                    </p>
+                </div>
 
             </div>
 
-
-            <div class="reason-card">
-
-                <span class="reason-number">
-                    02
-                </span>
-
-                <div class="reason-icon">
-                    ✦
-                </div>
-
-                <h3>
-                    You make things fun.
-                </h3>
-
-                <p>
-                    Kahit simpleng labas lang,
-                    somehow nagiging memorable kapag kasama kita.
-                </p>
-
-            </div>
-
-
-            <div class="reason-card">
-
-                <span class="reason-number">
-                    03
-                </span>
-
-                <div class="reason-icon">
-                    ☕
-                </div>
-
-                <h3>
-                    You listen.
-                </h3>
-
-                <p>
-                    Sa good days, bad days,
-                    at sa mga araw na kailangan lang natin mag-rant.
-                </p>
-
-            </div>
-
-
-            <div class="reason-card">
-
-                <span class="reason-number">
-                    04
-                </span>
-
-                <div class="reason-icon">
-                    ♡
-                </div>
-
-                <h3>
-                    You know the real me.
-                </h3>
-
-                <p>
-                    You've seen the good, the bad,
-                    and the weird... and you're still here.
-                </p>
-
-            </div>
-
-
-            <div class="reason-card">
-
-                <span class="reason-number">
-                    05
-                </span>
-
-                <div class="reason-icon">
-                    ✨
-                </div>
-
-                <h3>
-                    You're simply you.
-                </h3>
-
-                <p>
-                    And honestly,
-                    that's already more than enough reason
-                    to celebrate you.
-                </p>
-
-            </div>
-
-
-            <div class="reason-card special-card">
-
-                <span class="reason-number">
-                    06
-                </span>
-
-                <div class="reason-icon">
-                    🥹
-                </div>
-
-                <h3>
-                    I'm lucky to have you.
-                </h3>
-
-                <p>
-                    Out of all the people I could have met,
-                    I'm really glad life gave me you.
-                </p>
-
-            </div>
+            <button class="main-button next-button" data-next="letter">
+                There's something I want to tell you →
+            </button>
 
         </div>
 
-
-        <a href="#letter" class="main-button">
-            There's something I want to tell you →
-        </a>
+        <div class="screen-number">03 / 07</div>
 
     </section>
 
 
     <!-- =========================
-         LETTER
+         SCREEN 4 - LETTER
     ========================== -->
 
-    <section class="letter-section" id="letter">
+    <section class="screen" id="letter">
 
         <div class="letter">
 
@@ -295,28 +222,22 @@
                 <span>for you.</span>
             </h2>
 
-
             <div class="letter-body">
 
+                <p>Dear Bestie,</p>
+
+                <p>Happy 28th birthday! ♡</p>
+
                 <p>
-                    Dear Bestie,
+                    I honestly don't know how we managed to survive
+                    all the random conversations, chikas, laughs,
+                    food trips, dramas, and questionable decisions
+                    we've shared.
                 </p>
 
                 <p>
-                    Happy 28th birthday! ♡
-                </p>
-
-                <p>
-                    I honestly don't know how we managed to
-                    survive all the random conversations,
-                    chikas, laughs, food trips, dramas,
-                    and questionable decisions we've shared.
-                </p>
-
-                <p>
-                    But seriously, I'm really grateful that
-                    through all those years, I got to have
-                    you as my best friend.
+                    But seriously, I'm really grateful that through
+                    all those years, I got to have you as my best friend.
                 </p>
 
                 <p>
@@ -325,14 +246,14 @@
                 </p>
 
                 <p>
-                    I hope this new chapter brings you more
-                    happiness, more opportunities, more adventures,
-                    and everything you've been wishing for.
+                    I hope this new chapter brings you more happiness,
+                    more opportunities, more adventures, and everything
+                    you've been wishing for.
                 </p>
 
                 <p>
-                    And hopefully...
-                    marami pa tayong memories na gagawin together.
+                    And hopefully... marami pa tayong memories
+                    na gagawin together.
                 </p>
 
                 <p class="signature">
@@ -342,34 +263,33 @@
 
             </div>
 
-
-            <a href="#gift" class="main-button">
+            <button class="main-button next-button" data-next="gift">
                 I have one last thing for you...
-            </a>
+            </button>
 
         </div>
+
+        <div class="screen-number">04 / 07</div>
 
     </section>
 
 
     <!-- =========================
-         GIFT BOX
+         SCREEN 5 - GIFT
     ========================== -->
 
-    <section class="gift-section" id="gift">
+    <section class="screen gift-screen" id="gift">
 
-        <div class="gift-content">
+        <div class="screen-content">
 
-            <p class="eyebrow">
-                one last thing...
-            </p>
+            <p class="eyebrow">one last thing...</p>
 
             <h2>
                 I got you a gift. 🎁
             </h2>
 
             <p>
-                It's not exactly what you might expect.
+                But you'll have to open it yourself.
             </p>
 
             <div class="gift-wrapper" id="giftWrapper">
@@ -385,48 +305,50 @@
 
             </div>
 
-            <p class="gift-hint">
+            <p class="gift-hint" id="giftHint">
                 click the gift ↑
             </p>
 
-            <!-- This appears after clicking -->
+
+            <!-- HIDDEN UNTIL GIFT IS CLICKED -->
+
             <div class="gift-message" id="giftMessage">
 
-                <p>
-                    Wait...
-                </p>
+                <p class="eyebrow">WAIT... 😂</p>
 
                 <h3>
-                    You thought I was actually
-                    going to give you a physical gift? 😂
+                    You thought I was actually going
+                    to give you a physical gift?
                 </h3>
 
-                <a href="#coffee" class="main-button">
+                <p>
+                    Of course I have something better.
+                </p>
+
+                <button class="main-button next-button" data-next="coffee">
                     Okay, here's your real gift →
-                </a>
+                </button>
 
             </div>
 
         </div>
 
+        <div class="screen-number">05 / 07</div>
+
     </section>
 
 
     <!-- =========================
-         COFFEE REVEAL
+         SCREEN 6 - COFFEE
     ========================== -->
 
-    <section class="coffee-section" id="coffee">
+    <section class="screen coffee-screen" id="coffee">
 
-        <div class="coffee-content">
+        <div class="screen-content">
 
-            <p class="eyebrow">
-                SURPRISE! ☕
-            </p>
+            <p class="eyebrow">SURPRISE! ☕</p>
 
-            <div class="coffee-icon">
-                ☕
-            </div>
+            <div class="coffee-icon">☕</div>
 
             <h2>
                 COFFEE + FOOD
@@ -434,48 +356,36 @@
             </h2>
 
             <p class="coffee-intro">
-                Because honestly...
-                I'd rather spend time with you
+                Because honestly... I'd rather spend time with you
                 than just give you another thing.
             </p>
-
 
             <div class="date-card">
 
                 <div class="date-item">
                     <span>📅</span>
                     <small>WHEN</small>
-                    <strong>
-                        October 9, 2026
-                    </strong>
+                    <strong>October 9, 2026</strong>
                 </div>
-
 
                 <div class="date-item">
                     <span>👭</span>
                     <small>WHO</small>
-                    <strong>
-                        Just us
-                    </strong>
+                    <strong>Just us</strong>
                 </div>
-
 
                 <div class="date-item">
                     <span>🍰</span>
                     <small>PLAN</small>
-                    <strong>
-                        Food + Coffee
-                    </strong>
+                    <strong>Food + Coffee</strong>
                 </div>
 
             </div>
-
 
             <p class="date-message">
                 My treat. Your only responsibility is to show up,
                 eat, and bring your chikas. 😂
             </p>
-
 
             <button class="main-button" id="acceptButton">
                 YES, I'M COMING! ☕
@@ -485,35 +395,30 @@
 
         </div>
 
+        <div class="screen-number">06 / 07</div>
+
     </section>
 
 
     <!-- =========================
-         FINAL
+         SCREEN 7 - FINAL
     ========================== -->
 
-    <section class="final-section" id="final">
+    <section class="screen final-screen" id="final">
 
-        <div class="final-content">
+        <div class="screen-content">
 
-            <div class="final-heart">
-                ♡
-            </div>
+            <div class="final-heart">♡</div>
 
-            <p class="eyebrow">
-                okay, that's everything...
-            </p>
+            <p class="eyebrow">okay, that's everything...</p>
 
             <h2>
                 It's a date! 🥹☕
             </h2>
 
             <p class="final-message">
-                Here's to more birthdays,
-                more coffee,
-                more food,
-                more chika,
-                more random adventures,
+                Here's to more birthdays, more coffee, more food,
+                more chika, more random adventures,
                 and more memories together.
             </p>
 
@@ -521,15 +426,15 @@
                 ✦ ♡ ✦
             </div>
 
-            <h3>
-                Happy 28th, bestie!
-            </h3>
+            <h3>Happy 28th, bestie!</h3>
 
             <p class="final-date">
                 See you on October 9. ♡
             </p>
 
         </div>
+
+        <div class="screen-number">07 / 07</div>
 
     </section>
 
