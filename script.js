@@ -1,30 +1,90 @@
 /* =========================
-   GIFT BOX
+   SCREEN NAVIGATION
 ========================= */
 
-const giftWrapper = document.getElementById("giftWrapper");
-const giftMessage = document.getElementById("giftMessage");
+const screens = document.querySelectorAll(".screen");
 
-giftWrapper.addEventListener("click", function () {
+const nextButtons =
+    document.querySelectorAll(".next-button");
 
-    // Open the gift
-    giftWrapper.classList.add("open");
 
-    // Show hidden message
-    setTimeout(function () {
+function showScreen(screenId) {
 
-        giftMessage.classList.add("show");
+    screens.forEach(function (screen) {
 
-    }, 700);
+        screen.classList.remove("active");
 
-    // Confetti
-    createConfetti();
+    });
+
+    const nextScreen =
+        document.getElementById(screenId);
+
+    nextScreen.classList.add("active");
+
+}
+
+
+/* =========================
+   NEXT BUTTONS
+========================= */
+
+nextButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const nextScreen =
+            button.getAttribute("data-next");
+
+        showScreen(nextScreen);
+
+    });
 
 });
 
 
 /* =========================
-   COFFEE DATE BUTTON
+   GIFT BOX
+========================= */
+
+const giftWrapper =
+    document.getElementById("giftWrapper");
+
+const giftMessage =
+    document.getElementById("giftMessage");
+
+const giftHint =
+    document.getElementById("giftHint");
+
+
+let giftOpened = false;
+
+
+giftWrapper.addEventListener("click", function () {
+
+    if (giftOpened) {
+        return;
+    }
+
+    giftOpened = true;
+
+    giftWrapper.classList.add("open");
+
+    giftHint.style.display = "none";
+
+    createConfetti();
+
+
+    setTimeout(function () {
+
+        giftMessage.classList.add("show");
+
+    }, 800);
+
+});
+
+
+/* =========================
+   COFFEE DATE
 ========================= */
 
 const acceptButton =
@@ -39,19 +99,17 @@ acceptButton.addEventListener("click", function () {
     acceptButton.innerText =
         "IT'S A DATE! ☕♡";
 
+    acceptButton.disabled = true;
+
     acceptedMessage.innerText =
         "YAAAY! See you on October 9! 🥹";
 
     createConfetti();
 
-    // Automatically go to final section
+
     setTimeout(function () {
 
-        document
-            .getElementById("final")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+        showScreen("final");
 
     }, 1800);
 
@@ -72,10 +130,12 @@ function createConfetti() {
         "•"
     ];
 
+
     for (let i = 0; i < 70; i++) {
 
         const confetti =
             document.createElement("div");
+
 
         confetti.innerText =
             symbols[
@@ -83,6 +143,7 @@ function createConfetti() {
                     Math.random() * symbols.length
                 )
             ];
+
 
         confetti.style.position = "fixed";
 
@@ -93,8 +154,7 @@ function createConfetti() {
 
         confetti.style.zIndex = "9999";
 
-        confetti.style.pointerEvents =
-            "none";
+        confetti.style.pointerEvents = "none";
 
         confetti.style.fontSize =
             Math.random() * 20 + 10 + "px";
@@ -124,6 +184,7 @@ function createConfetti() {
 
             {
                 duration: duration,
+
                 easing: "ease-out"
             }
 
@@ -142,53 +203,3 @@ function createConfetti() {
     }
 
 }
-
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
-const cards =
-    document.querySelectorAll(".reason-card");
-
-
-const observer =
-    new IntersectionObserver(
-
-        function (entries) {
-
-            entries.forEach(function (entry) {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.style.opacity = "1";
-
-                    entry.target.style.transform =
-                        "translateY(0)";
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.15
-        }
-
-    );
-
-
-cards.forEach(function (card) {
-
-    card.style.opacity = "0";
-
-    card.style.transform =
-        "translateY(30px)";
-
-    card.style.transition =
-        "opacity 0.6s ease, transform 0.6s ease";
-
-    observer.observe(card);
-
-});
