@@ -1358,3 +1358,537 @@ body {
     }
 
 }
+
+/* =========================================
+   BIRTHDAY SCREEN - WOW EFFECT
+========================================= */
+
+.birthday-screen {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #fff8f5 0%,
+            #f9e8e5 45%,
+            #f2d6d2 100%
+        );
+}
+
+
+/* BIG SOFT GLOW */
+
+.birthday-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    filter: blur(60px);
+
+    animation: birthdayGlow 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+
+/* SPARKLES */
+
+.sparkle {
+    position: absolute;
+
+    color: #b8757d;
+
+    font-size: 2rem;
+
+    opacity: 0.5;
+
+    animation:
+        sparkleFloat 4s ease-in-out infinite;
+
+    pointer-events: none;
+}
+
+.sparkle-1 {
+    top: 15%;
+    left: 15%;
+
+    animation-delay: 0s;
+}
+
+.sparkle-2 {
+    top: 25%;
+    right: 15%;
+
+    animation-delay: 1s;
+}
+
+.sparkle-3 {
+    bottom: 20%;
+    left: 20%;
+
+    animation-delay: 2s;
+}
+
+.sparkle-4 {
+    bottom: 15%;
+    right: 20%;
+
+    animation-delay: 3s;
+}
+
+
+/* BIRTHDAY STEPS */
+
+.birthday-step {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    text-align: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(0.85)
+        translateY(30px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s ease;
+
+    z-index: 2;
+}
+
+
+.birthday-step.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1)
+        translateY(0);
+
+}
+
+
+/* LABEL */
+
+.small-label {
+
+    font-size: 0.7rem;
+
+    letter-spacing: 4px;
+
+    font-weight: 700;
+
+    color: #a56b73;
+
+    margin-bottom: 15px;
+}
+
+
+/* QUESTION */
+
+.question {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(4rem, 10vw, 7rem);
+
+    color: #5c4145;
+
+    margin: 0;
+
+    animation:
+        questionFloat 3s ease-in-out infinite;
+}
+
+
+.question-text {
+
+    font-size: 1.15rem;
+
+    color: #765d60;
+
+    margin:
+        10px 0 30px;
+}
+
+
+/* =========================================
+   BIG 28
+========================================= */
+
+.big-number {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(10rem, 25vw, 18rem);
+
+    line-height: 0.75;
+
+    color: #b8757d;
+
+    margin: 10px 0 30px;
+
+    text-shadow:
+
+        0 0 10px
+        rgba(184, 117, 125, 0.15),
+
+        0 0 30px
+        rgba(184, 117, 125, 0.15),
+
+        8px 8px 0
+        #f3d9d5;
+
+    animation:
+        numberReveal
+        1s
+        cubic-bezier(.17,.67,.31,1.5);
+}
+
+
+/* BIRTHDAY TITLE */
+
+.birthday-title {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(2.3rem, 6vw, 4.5rem);
+
+    line-height: 0.95;
+
+    color: #5c4145;
+
+    margin: 0 0 15px;
+
+    animation:
+        titleReveal 0.8s ease 0.3s both;
+}
+
+
+.birthday-message {
+
+    color: #765d60;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+
+    animation:
+        titleReveal 0.8s ease 0.5s both;
+}
+
+
+/* =========================================
+   SURPRISE STEP
+========================================= */
+
+.surprise-icon {
+
+    font-size: 4.5rem;
+
+    margin-bottom: 15px;
+
+    animation:
+        giftBounce 2s ease-in-out infinite;
+}
+
+
+.surprise-title {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(2.5rem, 6vw, 4.5rem);
+
+    line-height: 1;
+
+    color: #5c4145;
+
+    max-width: 650px;
+
+    margin: 0 0 20px;
+}
+
+
+.surprise-title span {
+
+    display: block;
+
+    color: #b8757d;
+
+}
+
+
+.surprise-text {
+
+    color: #765d60;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   BUTTON EFFECT
+========================================= */
+
+.birthday-screen .main-button {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.birthday-screen .main-button::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.5),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+}
+
+
+.birthday-screen .main-button:hover::after {
+
+    left: 130%;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes numberReveal {
+
+    0% {
+
+        transform:
+            scale(0.1)
+            rotate(-8deg);
+
+        opacity: 0;
+
+    }
+
+    60% {
+
+        transform:
+            scale(1.15)
+            rotate(3deg);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            scale(1)
+            rotate(0);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@keyframes titleReveal {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+@keyframes questionFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px);
+
+    }
+
+}
+
+
+@keyframes sparkleFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.3;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-25px)
+            rotate(20deg);
+
+        opacity: 0.9;
+
+    }
+
+}
+
+
+@keyframes birthdayGlow {
+
+    0%,
+    100% {
+
+        transform: scale(0.9);
+
+        opacity: 0.4;
+
+    }
+
+    50% {
+
+        transform: scale(1.2);
+
+        opacity: 0.7;
+
+    }
+
+}
+
+
+@keyframes giftBounce {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .birthday-step {
+
+        padding: 20px;
+
+    }
+
+    .question-text {
+
+        font-size: 1rem;
+
+    }
+
+    .surprise-title {
+
+        font-size: 2.5rem;
+
+    }
+
+    .surprise-icon {
+
+        font-size: 3.5rem;
+
+    }
+
+}
