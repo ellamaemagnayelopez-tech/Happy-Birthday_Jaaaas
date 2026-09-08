@@ -19,7 +19,9 @@ function showScreen(screenId) {
     const nextScreen =
         document.getElementById(screenId);
 
-    nextScreen.classList.add("active");
+    if (nextScreen) {
+        nextScreen.classList.add("active");
+    }
 
 }
 
@@ -43,6 +45,106 @@ nextButtons.forEach(function (button) {
 
 
 /* =========================
+   BIRTHDAY REVEAL
+========================= */
+
+const birthdayStep1 =
+    document.getElementById("birthdayStep1");
+
+const birthdayStep2 =
+    document.getElementById("birthdayStep2");
+
+const birthdayStep3 =
+    document.getElementById("birthdayStep3");
+
+
+const birthdayRevealButton =
+    document.getElementById("birthdayRevealButton");
+
+const planRevealButton =
+    document.getElementById("planRevealButton");
+
+const acceptDateButton =
+    document.getElementById("acceptDateButton");
+
+
+function showBirthdayStep(step) {
+
+    birthdayStep1.classList.remove("active");
+
+    birthdayStep2.classList.remove("active");
+
+    birthdayStep3.classList.remove("active");
+
+
+    step.classList.add("active");
+
+}
+
+
+/* STEP 1 → BIRTHDAY REVEAL */
+
+if (birthdayRevealButton) {
+
+    birthdayRevealButton.addEventListener(
+        "click",
+        function () {
+
+            showBirthdayStep(birthdayStep2);
+
+            createConfetti();
+
+        }
+    );
+
+}
+
+
+/* BIRTHDAY → DATE PLAN */
+
+if (planRevealButton) {
+
+    planRevealButton.addEventListener(
+        "click",
+        function () {
+
+            showBirthdayStep(birthdayStep3);
+
+        }
+    );
+
+}
+
+
+/* ACCEPT THE DATE */
+
+if (acceptDateButton) {
+
+    acceptDateButton.addEventListener(
+        "click",
+        function () {
+
+            acceptDateButton.innerText =
+                "IT'S A DATE! ☕♡";
+
+            acceptDateButton.disabled = true;
+
+            createConfetti();
+
+
+            setTimeout(function () {
+
+                showScreen("reasons");
+
+            }, 1200);
+
+        }
+    );
+
+}
+
+
+/* =========================
    GIFT BOX
 ========================= */
 
@@ -59,28 +161,39 @@ const giftHint =
 let giftOpened = false;
 
 
-giftWrapper.addEventListener("click", function () {
+if (giftWrapper) {
 
-    if (giftOpened) {
-        return;
-    }
+    giftWrapper.addEventListener(
+        "click",
+        function () {
 
-    giftOpened = true;
+            if (giftOpened) {
+                return;
+            }
 
-    giftWrapper.classList.add("open");
+            giftOpened = true;
 
-    giftHint.style.display = "none";
+            giftWrapper.classList.add("open");
 
-    createConfetti();
+            if (giftHint) {
+                giftHint.style.display = "none";
+            }
+
+            createConfetti();
 
 
-    setTimeout(function () {
+            setTimeout(function () {
 
-        giftMessage.classList.add("show");
+                if (giftMessage) {
+                    giftMessage.classList.add("show");
+                }
 
-    }, 800);
+            }, 800);
 
-});
+        }
+    );
+
+}
 
 
 /* =========================
@@ -94,26 +207,39 @@ const acceptedMessage =
     document.getElementById("acceptedMessage");
 
 
-acceptButton.addEventListener("click", function () {
+if (acceptButton) {
 
-    acceptButton.innerText =
-        "IT'S A DATE! ☕♡";
+    acceptButton.addEventListener(
+        "click",
+        function () {
 
-    acceptButton.disabled = true;
+            acceptButton.innerText =
+                "IT'S A DATE! ☕♡";
 
-    acceptedMessage.innerText =
-        "YAAAY! See you on October 9! 🥹";
-
-    createConfetti();
+            acceptButton.disabled = true;
 
 
-    setTimeout(function () {
+            if (acceptedMessage) {
 
-        showScreen("final");
+                acceptedMessage.innerText =
+                    "YAAAY! See you on October 9! 🥹";
 
-    }, 1800);
+            }
 
-});
+
+            createConfetti();
+
+
+            setTimeout(function () {
+
+                showScreen("final");
+
+            }, 1800);
+
+        }
+    );
+
+}
 
 
 /* =========================
@@ -140,7 +266,8 @@ function createConfetti() {
         confetti.innerText =
             symbols[
                 Math.floor(
-                    Math.random() * symbols.length
+                    Math.random() *
+                    symbols.length
                 )
             ];
 
@@ -150,11 +277,14 @@ function createConfetti() {
         confetti.style.left =
             Math.random() * 100 + "vw";
 
-        confetti.style.top = "-20px";
+        confetti.style.top =
+            "-20px";
 
-        confetti.style.zIndex = "9999";
+        confetti.style.zIndex =
+            "9999";
 
-        confetti.style.pointerEvents = "none";
+        confetti.style.pointerEvents =
+            "none";
 
         confetti.style.fontSize =
             Math.random() * 20 + 10 + "px";
