@@ -1,5 +1,5 @@
 /* =========================
-   BASIC RESET
+   RESET
 ========================= */
 
 * {
@@ -8,15 +8,17 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html,
+body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
     font-family: "DM Sans", sans-serif;
     background: #fffaf7;
     color: #4c372c;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 :root {
@@ -31,61 +33,62 @@ body {
 
 
 /* =========================
-   BUTTONS
+   SCREEN SYSTEM
 ========================= */
 
-.main-button {
-    display: inline-flex;
+.screen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
 
-    text-decoration: none;
+    padding: 50px 25px;
 
-    background: var(--brown);
-    color: white;
+    text-align: center;
 
-    padding: 15px 28px;
+    opacity: 0;
+    visibility: hidden;
 
-    border-radius: 40px;
+    transform: scale(1.03);
 
-    font-weight: 700;
-    font-size: 14px;
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease,
+        visibility 0.7s;
 
-    border: none;
-
-    cursor: pointer;
-
-    transition: 0.3s;
+    overflow-y: auto;
 }
 
-.main-button:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(70, 40, 25, 0.2);
-}
+.screen.active {
+    opacity: 1;
+    visibility: visible;
 
-.text-button {
-    color: var(--brown);
+    transform: scale(1);
 
-    text-decoration: none;
-
-    font-weight: 700;
-
-    border-bottom: 1px solid var(--brown);
-
-    padding-bottom: 5px;
-
-    transition: 0.3s;
-}
-
-.text-button:hover {
-    color: var(--dark-pink);
-    border-color: var(--dark-pink);
+    z-index: 10;
 }
 
 
 /* =========================
-   COMMON
+   CONTENT
 ========================= */
+
+.screen-content {
+    width: 100%;
+    max-width: 700px;
+
+    animation: contentIn 0.8s ease;
+}
+
+.screen-content.wide {
+    max-width: 1100px;
+}
 
 .eyebrow {
     font-family: "Pacifico", cursive;
@@ -95,6 +98,103 @@ body {
     font-size: 18px;
 
     margin-bottom: 15px;
+}
+
+.description {
+    max-width: 480px;
+
+    margin: 0 auto 30px;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+
+/* =========================
+   SCREEN NUMBER
+========================= */
+
+.screen-number {
+    position: fixed;
+
+    bottom: 25px;
+    right: 30px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    opacity: 0.45;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.main-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    background: var(--brown);
+
+    color: white;
+
+    padding: 15px 28px;
+
+    border-radius: 40px;
+
+    border: none;
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.main-button:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 30px rgba(70, 40, 25, 0.2);
+}
+
+.text-button {
+    background: none;
+
+    border: none;
+
+    border-bottom: 1px solid var(--brown);
+
+    padding-bottom: 5px;
+
+    color: var(--brown);
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.3s;
+}
+
+.text-button:hover {
+    color: var(--dark-pink);
+
+    border-color: var(--dark-pink);
 }
 
 
@@ -111,7 +211,7 @@ body {
 
     pointer-events: none;
 
-    z-index: 5;
+    z-index: 50;
 
     opacity: 0.4;
 
@@ -139,22 +239,10 @@ body {
 
 
 /* =========================
-   HERO
+   HOME
 ========================= */
 
-.hero {
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    position: relative;
-
-    padding: 60px 20px;
-
+#home {
     background:
         radial-gradient(
             circle at 10% 20%,
@@ -169,12 +257,6 @@ body {
         var(--cream);
 }
 
-.hero-content {
-    max-width: 650px;
-
-    animation: fadeUp 1s ease;
-}
-
 .envelope {
     font-size: 100px;
 
@@ -183,7 +265,7 @@ body {
     animation: floating 2.5s ease-in-out infinite;
 }
 
-.hero h1 {
+#home h1 {
     font-family: "Playfair Display", serif;
 
     font-size: clamp(50px, 8vw, 85px);
@@ -193,36 +275,10 @@ body {
     margin-bottom: 25px;
 }
 
-.hero h1 span {
+#home h1 span {
     display: block;
 
     color: var(--brown);
-}
-
-.hero-description {
-    max-width: 470px;
-
-    margin: 0 auto 30px;
-
-    line-height: 1.8;
-
-    font-size: 17px;
-}
-
-.scroll-hint {
-    position: absolute;
-
-    bottom: 30px;
-
-    font-size: 12px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
-
-    opacity: 0.5;
-
-    animation: bounce 1.5s infinite;
 }
 
 
@@ -230,34 +286,20 @@ body {
    BIRTHDAY
 ========================= */
 
-.birthday {
-    min-height: 100vh;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 80px 20px;
-
+#birthday {
     background: #f8e2e4;
-}
-
-.birthday-content {
-    max-width: 800px;
 }
 
 .birthday-intro {
     font-size: 20px;
 
-    margin-top: 30px;
+    margin: 20px 0 5px;
 }
 
 .big-number {
     font-family: "Playfair Display", serif;
 
-    font-size: clamp(150px, 28vw, 300px);
+    font-size: clamp(140px, 25vw, 280px);
 
     line-height: 0.85;
 
@@ -268,7 +310,7 @@ body {
     animation: numberReveal 1.2s ease;
 }
 
-.birthday h2 {
+#birthday h2 {
     font-family: "Playfair Display", serif;
 
     font-size: clamp(45px, 7vw, 75px);
@@ -279,9 +321,9 @@ body {
 
     color: var(--dark-pink);
 
-    margin: 20px 0 40px;
-
     font-size: 20px;
+
+    margin: 15px 0 35px;
 }
 
 
@@ -289,108 +331,111 @@ body {
    REASONS
 ========================= */
 
-.reasons {
-    min-height: 100vh;
-
-    padding: 110px 8%;
-
-    text-align: center;
-
+#reasons {
     background: var(--cream);
 }
 
-.section-header {
-    max-width: 700px;
-
-    margin: 0 auto 60px;
-}
-
-.section-header h2 {
+.section-title {
     font-family: "Playfair Display", serif;
 
     font-size: clamp(40px, 6vw, 65px);
 
-    line-height: 1.1;
+    line-height: 1.05;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.section-header h2 span {
+.section-title span {
     color: var(--brown);
+
+    display: block;
 }
 
-.section-header > p:last-child {
-    line-height: 1.6;
-
+.section-description {
     color: #806d63;
+
+    margin-bottom: 30px;
 }
 
 .reasons-grid {
-    max-width: 1100px;
-
-    margin: auto;
-
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
 
-    gap: 25px;
+    gap: 15px;
 
-    margin-bottom: 55px;
+    margin: 0 auto 30px;
 }
 
 .reason-card {
     background: white;
 
-    padding: 35px 28px;
+    padding: 20px;
 
-    border-radius: 20px;
+    border-radius: 18px;
 
     text-align: left;
-
-    position: relative;
 
     box-shadow:
         0 10px 30px rgba(70, 40, 25, 0.07);
 
-    transition: 0.35s;
+    transition: 0.3s;
+
+    animation: cardIn 0.7s ease both;
+}
+
+.reason-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.reason-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.reason-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.reason-card:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.reason-card:nth-child(6) {
+    animation-delay: 0.5s;
 }
 
 .reason-card:hover {
-    transform: translateY(-8px) rotate(-1deg);
-
-    box-shadow:
-        0 18px 40px rgba(70, 40, 25, 0.13);
+    transform: translateY(-6px);
 }
 
 .reason-number {
     font-family: "Playfair Display", serif;
 
-    font-size: 25px;
-
     color: #e6bfc3;
+
+    font-size: 20px;
 }
 
 .reason-icon {
-    font-size: 35px;
+    font-size: 28px;
 
-    margin: 15px 0;
+    margin: 8px 0;
 }
 
 .reason-card h3 {
     font-family: "Playfair Display", serif;
 
-    font-size: 24px;
+    font-size: 20px;
 
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
 .reason-card p {
-    line-height: 1.7;
+    font-size: 13px;
+
+    line-height: 1.5;
 
     color: #76645b;
-
-    font-size: 14px;
 }
 
 .special-card {
@@ -402,16 +447,7 @@ body {
    LETTER
 ========================= */
 
-.letter-section {
-    min-height: 100vh;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 100px 20px;
-
+#letter {
     background: #ead8ca;
 }
 
@@ -420,7 +456,7 @@ body {
 
     background: var(--paper);
 
-    padding: 65px;
+    padding: 50px 60px;
 
     position: relative;
 
@@ -428,6 +464,10 @@ body {
         0 25px 60px rgba(70, 40, 25, 0.15);
 
     transform: rotate(-1deg);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
 }
 
 .tape {
@@ -441,7 +481,9 @@ body {
     top: -17px;
     left: 50%;
 
-    transform: translateX(-50%) rotate(2deg);
+    transform:
+        translateX(-50%)
+        rotate(2deg);
 
     opacity: 0.8;
 }
@@ -453,7 +495,7 @@ body {
 
     line-height: 1.05;
 
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
 .letter h2 span {
@@ -463,13 +505,13 @@ body {
 .letter-body {
     text-align: left;
 
-    line-height: 1.8;
+    line-height: 1.7;
 
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
 .letter-body p {
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 .signature {
@@ -485,18 +527,7 @@ body {
    GIFT
 ========================= */
 
-.gift-section {
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 80px 20px;
-
+#gift {
     background:
         radial-gradient(
             circle at center,
@@ -506,16 +537,12 @@ body {
         #ead2bd;
 }
 
-.gift-content {
-    max-width: 700px;
-}
-
-.gift-content h2 {
+#gift h2 {
     font-family: "Playfair Display", serif;
 
     font-size: clamp(45px, 7vw, 70px);
 
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .gift-wrapper {
@@ -524,7 +551,7 @@ body {
 
     position: relative;
 
-    margin: 65px auto 20px;
+    margin: 45px auto 15px;
 
     cursor: pointer;
 
@@ -588,6 +615,16 @@ body {
     transform: translateX(-50%);
 }
 
+.gift-wrapper.open .gift-lid {
+    transform:
+        translateY(-90px)
+        rotate(-12deg);
+}
+
+.gift-wrapper.open {
+    transform: translateY(20px);
+}
+
 .gift-hint {
     font-family: "Pacifico", cursive;
 
@@ -596,22 +633,12 @@ body {
     animation: bounce 1.5s infinite;
 }
 
-.gift-wrapper.open .gift-lid {
-    transform:
-        translateY(-80px)
-        rotate(-12deg);
-}
-
-.gift-wrapper.open {
-    transform: translateY(20px);
-}
-
 .gift-message {
     display: none;
 
-    margin-top: 40px;
+    margin-top: 20px;
 
-    animation: fadeUp 0.7s ease;
+    animation: fadeUp 0.8s ease;
 }
 
 .gift-message.show {
@@ -623,9 +650,9 @@ body {
 
     font-size: 28px;
 
-    margin: 15px auto 25px;
-
     max-width: 550px;
+
+    margin: 10px auto 12px;
 }
 
 
@@ -633,18 +660,7 @@ body {
    COFFEE
 ========================= */
 
-.coffee-section {
-    min-height: 100vh;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-
-    padding: 100px 20px;
-
+#coffee {
     background:
         radial-gradient(
             circle at 15% 20%,
@@ -659,19 +675,15 @@ body {
         var(--cream);
 }
 
-.coffee-content {
-    max-width: 850px;
-}
-
 .coffee-icon {
-    font-size: 100px;
+    font-size: 90px;
 
-    margin: 10px 0 20px;
+    margin: 5px 0 15px;
 
     animation: coffeeFloat 2s infinite;
 }
 
-.coffee-content h2 {
+#coffee h2 {
     font-family: "Playfair Display", serif;
 
     font-size: clamp(45px, 7vw, 75px);
@@ -681,7 +693,7 @@ body {
     color: var(--brown);
 }
 
-.coffee-content h2 span {
+#coffee h2 span {
     display: block;
 
     color: var(--dark-brown);
@@ -690,17 +702,15 @@ body {
 .coffee-intro {
     max-width: 550px;
 
-    margin: 25px auto 40px;
+    margin: 20px auto 25px;
 
     line-height: 1.7;
-
-    font-size: 17px;
 }
 
 .date-card {
     background: white;
 
-    padding: 35px;
+    padding: 25px;
 
     border-radius: 22px;
 
@@ -708,12 +718,12 @@ body {
 
     justify-content: center;
 
-    gap: 50px;
+    gap: 45px;
 
     box-shadow:
         0 20px 45px rgba(70, 40, 25, 0.1);
 
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .date-item {
@@ -721,15 +731,15 @@ body {
 
     flex-direction: column;
 
-    gap: 7px;
+    gap: 5px;
 }
 
 .date-item span {
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .date-item small {
-    font-size: 10px;
+    font-size: 9px;
 
     letter-spacing: 2px;
 
@@ -737,17 +747,17 @@ body {
 }
 
 .date-item strong {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .date-message {
-    line-height: 1.7;
+    line-height: 1.6;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 #acceptedMessage {
-    margin-top: 20px;
+    margin-top: 15px;
 
     font-family: "Pacifico", cursive;
 
@@ -761,25 +771,10 @@ body {
    FINAL
 ========================= */
 
-.final-section {
-    min-height: 100vh;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 80px 20px;
-
+#final {
     background: var(--dark-brown);
 
     color: white;
-}
-
-.final-content {
-    max-width: 700px;
 }
 
 .final-heart {
@@ -790,14 +785,14 @@ body {
     animation: heartbeat 1.3s infinite;
 }
 
-.final-content h2 {
+.final-screen h2 {
     font-family: "Playfair Display", serif;
 
     font-size: clamp(50px, 8vw, 85px);
 
     line-height: 1;
 
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .final-message {
@@ -813,12 +808,12 @@ body {
 .divider {
     color: #f4c8ce;
 
-    margin: 30px 0;
+    margin: 25px 0;
 
     letter-spacing: 10px;
 }
 
-.final-content h3 {
+.final-screen h3 {
     font-family: "Pacifico", cursive;
 
     color: #f4c8ce;
@@ -827,7 +822,7 @@ body {
 }
 
 .final-date {
-    margin-top: 15px;
+    margin-top: 12px;
 
     opacity: 0.7;
 }
@@ -836,6 +831,19 @@ body {
 /* =========================
    ANIMATIONS
 ========================= */
+
+@keyframes contentIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 @keyframes floating {
 
@@ -863,7 +871,20 @@ body {
 
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
     }
 
     to {
@@ -933,21 +954,71 @@ body {
 
 @media (max-width: 750px) {
 
+    .screen {
+        padding: 35px 18px;
+    }
+
+    .screen-content.wide {
+        max-height: 90vh;
+
+        overflow-y: auto;
+    }
+
     .reasons-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+    }
+
+    .reason-card {
+        padding: 15px;
+    }
+
+    .reason-card h3 {
+        font-size: 17px;
+    }
+
+    .reason-card p {
+        font-size: 12px;
+    }
+
+    .letter {
+        padding: 45px 25px;
+
+        max-height: 88vh;
     }
 
     .date-card {
         flex-direction: column;
 
-        gap: 25px;
-    }
-
-    .letter {
-        padding: 45px 25px;
+        gap: 15px;
     }
 
     .floating-heart {
         display: none;
+    }
+
+    .screen-number {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .reasons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reason-card p {
+        font-size: 13px;
+    }
+
+    .envelope {
+        font-size: 75px;
+    }
+
+    .big-number {
+        font-size: 150px;
     }
 }
