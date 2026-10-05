@@ -441,7 +441,21 @@
     </section>
 
 
-    <script src="script.js"></script>
+    <script>
+document.querySelectorAll(".next-button").forEach(function(button) {
+    button.addEventListener("click", function() {
+
+        var nextScreen = button.getAttribute("data-next");
+
+        document.querySelectorAll(".screen").forEach(function(screen) {
+            screen.classList.remove("active");
+        });
+
+        document.getElementById(nextScreen).classList.add("active");
+
+    });
+});
+</script>
 
 </body>
 </html>
