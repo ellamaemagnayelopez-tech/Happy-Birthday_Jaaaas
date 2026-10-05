@@ -1,9 +1,12 @@
+```javascript
+/* =========================
+   SCREEN NAVIGATION
+========================= */
+
 const screens = document.querySelectorAll(".screen");
 const nextButtons = document.querySelectorAll(".next-button");
 
-
 function showScreen(screenId) {
-
     screens.forEach(function(screen) {
         screen.classList.remove("active");
     });
@@ -12,35 +15,45 @@ function showScreen(screenId) {
 
     if (target) {
         target.classList.add("active");
+
+        // Reset scroll position when opening a new screen
+        const scrollable = target.querySelector(
+            ".memories-content, .letter"
+        );
+
+        if (scrollable) {
+            scrollable.scrollTop = 0;
+        }
     }
 }
 
-
-/* NEXT BUTTONS */
-
 nextButtons.forEach(function(button) {
-
     button.addEventListener("click", function() {
 
         const nextScreen = button.dataset.next;
 
         showScreen(nextScreen);
 
+        // Start music after user interaction
         if (nextScreen === "birthday") {
-    bgMusic.play().catch(function(error) {
-        console.log("Music waiting:", error);
+            startMusic();
+        }
     });
-}
-
-    });
-
 });
 
-/* BIRTHDAY */
 
-const birthdayStep1 = document.getElementById("birthdayStep1");
-const birthdayStep2 = document.getElementById("birthdayStep2");
-const birthdayStep3 = document.getElementById("birthdayStep3");
+/* =========================
+   BIRTHDAY
+========================= */
+
+const birthdayStep1 =
+    document.getElementById("birthdayStep1");
+
+const birthdayStep2 =
+    document.getElementById("birthdayStep2");
+
+const birthdayStep3 =
+    document.getElementById("birthdayStep3");
 
 const birthdayRevealButton =
     document.getElementById("birthdayRevealButton");
@@ -64,7 +77,6 @@ birthdayRevealButton.addEventListener("click", function() {
     showBirthdayStep(birthdayStep2);
 
     createConfetti();
-
 });
 
 
@@ -75,7 +87,9 @@ birthdayMoreButton.addEventListener("click", function() {
 });
 
 
-/* GIFT */
+/* =========================
+   GIFT
+========================= */
 
 const giftWrapper =
     document.getElementById("giftWrapper");
@@ -88,6 +102,10 @@ const giftHint =
 
 
 giftWrapper.addEventListener("click", function() {
+
+    if (giftWrapper.classList.contains("open")) {
+        return;
+    }
 
     giftWrapper.classList.add("open");
 
@@ -102,7 +120,9 @@ giftWrapper.addEventListener("click", function() {
 });
 
 
-/* DATE */
+/* =========================
+   DATE
+========================= */
 
 const acceptButton =
     document.getElementById("acceptButton");
@@ -129,45 +149,47 @@ acceptButton.addEventListener("click", function() {
 
 });
 
-/* =========================================
+
+/* =========================
    BACKGROUND MUSIC
-========================================= */
+========================= */
 
-const bgMusic = document.getElementById("bgMusic");
-const musicButton = document.getElementById("musicButton");
+const bgMusic =
+    document.getElementById("bgMusic");
 
-bgMusic.volume = 0.35;
-bgMusic.load();
+const musicButton =
+    document.getElementById("musicButton");
 
 let musicPlaying = false;
 
+bgMusic.volume = 0.35;
 
-/* START MUSIC */
 
 function startMusic() {
 
-    if (!musicPlaying) {
-
-        bgMusic.play()
-            .then(function() {
-
-                musicPlaying = true;
-
-                musicButton.innerText = "♫ Music On";
-
-            })
-            .catch(function(error) {
-
-                console.log("Music could not start:", error);
-
-            });
-
+    if (musicPlaying) {
+        return;
     }
 
+    bgMusic.play()
+        .then(function() {
+
+            musicPlaying = true;
+
+            musicButton.innerText =
+                "♫ Music On";
+
+        })
+        .catch(function(error) {
+
+            console.log(
+                "Music waiting for user interaction:",
+                error
+            );
+
+        });
 }
 
-
-/* MUSIC BUTTON */
 
 musicButton.addEventListener("click", function() {
 
@@ -177,36 +199,62 @@ musicButton.addEventListener("click", function() {
 
         musicPlaying = false;
 
-        musicButton.innerText = "♫ Music Off";
+        musicButton.innerText =
+            "♫ Music Off";
 
     } else {
 
-        bgMusic.play();
+        bgMusic.play()
+            .then(function() {
 
-        musicPlaying = true;
+                musicPlaying = true;
 
-        musicButton.innerText = "♫ Music On";
+                musicButton.innerText =
+                    "♫ Music On";
 
+            })
+            .catch(function(error) {
+
+                console.log(
+                    "Music could not start:",
+                    error
+                );
+
+            });
     }
-
 });
 
-/* =========================================
+
+/* =========================
    CONFETTI
-========================================= */
+========================= */
 
 function createConfetti() {
 
     const pieces = 80;
 
+    const symbols = [
+        "✦",
+        "♡",
+        "●",
+        "✧",
+        "♥"
+    ];
+
+
     for (let i = 0; i < pieces; i++) {
 
-        const piece = document.createElement("div");
+        const piece =
+            document.createElement("div");
 
         piece.classList.add("confetti-piece");
 
         piece.innerHTML =
-            ["✦", "♡", "●", "✧", "♥"][Math.floor(Math.random() * 5)];
+            symbols[
+                Math.floor(
+                    Math.random() * symbols.length
+                )
+            ];
 
         piece.style.left =
             Math.random() * 100 + "vw";
@@ -230,6 +278,6 @@ function createConfetti() {
             piece.remove();
 
         }, duration * 1000);
-
     }
 }
+```
