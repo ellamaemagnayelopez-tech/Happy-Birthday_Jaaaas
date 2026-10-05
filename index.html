@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,13 +16,23 @@
 
 <body>
 
+    <!-- MUSIC -->
+    <audio id="bgMusic" loop preload="auto">
+        <source
+            src="https://raw.githubusercontent.com/ellamaemagnayelopez-tech/Happy-Birthday_Jaaaas/main/Count%20On%20Me%20-%20Bruno%20Mars%20%28Lyrics%29.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <button id="musicButton" class="music-button">
+        ♫ Music Off
+    </button>
+
+
     <!-- 01 HOME -->
     <section class="screen active" id="home">
-
         <div class="screen-number">01 / 08</div>
 
-        <div class="home-content">
-
+        <div class="hero">
             <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
 
             <h1>
@@ -31,27 +40,23 @@
                 <span>Bestie ♡</span>
             </h1>
 
-            <p class="home-subtitle">
-                Because some people deserve more than just<br>
-                a simple "Happy Birthday."
+            <p class="subtitle">
+                Because some people deserve more than
+                just a simple "Happy Birthday."
             </p>
 
             <button class="next-button" data-next="birthday">
                 Open this ♡
             </button>
-
         </div>
-
     </section>
 
 
     <!-- 02 BIRTHDAY -->
     <section class="screen" id="birthday">
-
         <div class="screen-number">02 / 08</div>
 
-        <div class="birthday-content">
-
+        <div class="content birthday-content">
             <p class="eyebrow">TODAY IS YOUR DAY</p>
 
             <h2>
@@ -59,31 +64,29 @@
                 <span>Bestie! ♡</span>
             </h2>
 
-            <p class="birthday-text">
+            <p class="body-text">
                 Another year older, another year of surviving
                 life together. 😂
             </p>
 
-            <div class="birthday-date">
-                ✦ TODAY, WE CELEBRATE YOU ✦
+            <div class="birthday-card">
+                <span>✦</span>
+                TODAY, WE CELEBRATE YOU
+                <span>✦</span>
             </div>
 
             <button class="next-button" data-next="reasons">
                 There's more ♡
             </button>
-
         </div>
-
     </section>
 
 
     <!-- 03 REASONS -->
     <section class="screen" id="reasons">
-
         <div class="screen-number">03 / 08</div>
 
-        <div class="reasons-content">
-
+        <div class="content">
             <p class="eyebrow">WHY YOU'RE MY BESTIE</p>
 
             <h2>
@@ -134,18 +137,15 @@
             <button class="next-button" data-next="memories">
                 Remember when... ♡
             </button>
-
         </div>
-
     </section>
 
 
-    <!-- 04 OUR MEMORIES -->
+    <!-- 04 MEMORIES -->
     <section class="screen" id="memories">
-
         <div class="screen-number">04 / 08</div>
 
-        <div class="memories-content">
+        <div class="content memories-content">
 
             <p class="eyebrow">OUR MEMORIES</p>
 
@@ -160,123 +160,73 @@
             </p>
 
 
-            <!-- PHOTO GALLERY -->
             <div class="photo-gallery">
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1uUDhmSEXblftbd0bRXbDK0Mp95pNzKEd"
-                        alt="Memory 1"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1uUDhmSEXblftbd0bRXbDK0Mp95pNzKEd" alt="Memory 1">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1C_uSp7pm2yZiZIsn7Hzt7WDB3k6SmwZW"
-                        alt="Memory 2"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1C_uSp7pm2yZiZIsn7Hzt7WDB3k6SmwZW" alt="Memory 2">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1yPqzRYdJve-dPOj4qSVHD7Z9OfgHNOKc"
-                        alt="Memory 3"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1yPqzRYdJve-dPOj4qSVHD7Z9OfgHNOKc" alt="Memory 3">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1zXh87laJKA9Dd6PWWCwkDmVeANxrmlbC"
-                        alt="Memory 4"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1zXh87laJKA9Dd6PWWCwkDmVeANxrmlbC" alt="Memory 4">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1A8VsQ2ICaZElxQLZMlFooWRSpQArYexO"
-                        alt="Memory 5"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1A8VsQ2ICaZElxQLZMlFooWRSpQArYexO" alt="Memory 5">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=19XMui4HLqRG18hIuTaN-XT6T490OlQkK"
-                        alt="Memory 6"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=19XMui4HLqRG18hIuTaN-XT6T490OlQkK" alt="Memory 6">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1zEPlR4zq-4KZVJjhLqAPLwN_K-YZBh-A"
-                        alt="Memory 7"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1zEPlR4zq-4KZVJjhLqAPLwN_K-YZBh-A" alt="Memory 7">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1U5p3WPSNt3GE_QWMMXWg-W2MxREKTXd6"
-                        alt="Memory 8"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1U5p3WPSNt3GE_QWMMXWg-W2MxREKTXd6" alt="Memory 8">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1IP5JAwsr4jOnb5Lji-47vaUPHnjwg2HN"
-                        alt="Memory 9"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1IP5JAwsr4jOnb5Lji-47vaUPHnjwg2HN" alt="Memory 9">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1WRhTgEGz0b2nlF1HQ93tSRS_Ut7KjpBu"
-                        alt="Memory 10"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1WRhTgEGz0b2nlF1HQ93tSRS_Ut7KjpBu" alt="Memory 10">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1OXMYx37z4azoDvmoVCtNK8CE2azeYAeN"
-                        alt="Memory 11"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1OXMYx37z4azoDvmoVCtNK8CE2azeYAeN" alt="Memory 11">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1WQTwDyyHAWjSccBt9hlQZgvJKGq6hKTr"
-                        alt="Memory 12"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1WQTwDyyHAWjSccBt9hlQZgvJKGq6hKTr" alt="Memory 12">
                 </div>
 
                 <div class="memory-photo">
-                    <img
-                        src="https://drive.google.com/uc?export=view&id=1pKbySYUDZRmHyVjztnG7tyl-bLMPtVat"
-                        alt="Memory 13"
-                        loading="lazy">
+                    <img src="https://drive.google.com/uc?export=view&id=1pKbySYUDZRmHyVjztnG7tyl-bLMPtVat" alt="Memory 13">
                 </div>
 
             </div>
 
 
-            <!-- VIDEO -->
             <div class="memory-video">
-
                 <p class="video-label">
                     AND THEN THERE'S THIS... 😂
                 </p>
 
-                <video
-                    controls
-                    playsinline
-                    preload="metadata">
-
+                <video controls playsinline preload="metadata">
                     <source
                         src="https://drive.google.com/uc?export=download&id=1RKqVnkBA3hJF5gDKAuRrP4PmI1U6XbCR"
                         type="video/mp4">
-
-                    Your browser does not support the video.
-
                 </video>
-
             </div>
 
 
@@ -285,17 +235,14 @@
             </button>
 
         </div>
-
     </section>
 
 
     <!-- 05 LETTER -->
     <section class="screen" id="letter">
-
         <div class="screen-number">05 / 08</div>
 
-        <div class="letter">
-
+        <div class="content letter-content">
             <p class="eyebrow">A LITTLE LETTER</p>
 
             <h2>
@@ -303,11 +250,9 @@
                 always ♡
             </h2>
 
-            <div class="letter-text">
+            <div class="letter-paper">
 
-                <p>
-                    To my bestie,
-                </p>
+                <p>To my bestie,</p>
 
                 <p>
                     I don't think I say this enough, but I'm really
@@ -349,18 +294,15 @@
             <button class="next-button" data-next="gift">
                 One more thing... ♡
             </button>
-
         </div>
-
     </section>
 
 
     <!-- 06 GIFT -->
     <section class="screen" id="gift">
-
         <div class="screen-number">06 / 08</div>
 
-        <div class="gift-content">
+        <div class="content gift-content">
 
             <p class="eyebrow">YOUR LITTLE GIFT</p>
 
@@ -369,31 +311,25 @@
                 waiting for you 🎁
             </h2>
 
-            <div class="gift-box" id="giftBox">
+            <button class="gift-box" id="giftBox" aria-label="Open gift">
 
                 <div class="gift-lid"></div>
-
                 <div class="gift-body"></div>
-
                 <div class="gift-ribbon"></div>
 
-            </div>
+            </button>
 
             <p class="gift-hint">
                 Tap the gift ♡
             </p>
 
             <div class="gift-message" id="giftMessage">
+                <strong>Surprise! ♡</strong>
 
                 <p>
-                    Surprise! ♡
-                </p>
-
-                <span>
                     It's not much, but I hope it reminds you
                     how special you are to me.
-                </span>
-
+                </p>
             </div>
 
             <button class="next-button" data-next="coffee">
@@ -401,16 +337,14 @@
             </button>
 
         </div>
-
     </section>
 
 
     <!-- 07 FOOD + COFFEE -->
     <section class="screen" id="coffee">
-
         <div class="screen-number">07 / 08</div>
 
-        <div class="coffee-content">
+        <div class="content coffee-content">
 
             <p class="eyebrow">THE IMPORTANT THINGS</p>
 
@@ -420,7 +354,7 @@
                 Us. ♡
             </h2>
 
-            <p>
+            <p class="body-text">
                 Because honestly, what's a friendship without
                 food trips, coffee runs, and random conversations
                 that somehow last for hours?
@@ -466,13 +400,11 @@
             </button>
 
         </div>
-
     </section>
 
 
     <!-- 08 FINAL -->
     <section class="screen" id="final">
-
         <div class="screen-number">08 / 08</div>
 
         <div class="final-content">
@@ -506,28 +438,10 @@
             </p>
 
         </div>
-
     </section>
-
-
-    <!-- BACKGROUND MUSIC -->
-    <audio id="bgMusic" loop preload="auto">
-
-        <source
-            src="https://raw.githubusercontent.com/ellamaemagnayelopez-tech/Happy-Birthday_Jaaaas/main/Count%20On%20Me%20-%20Bruno%20Mars%20%28Lyrics%29.mp3"
-            type="audio/mpeg">
-
-    </audio>
-
-
-    <!-- MUSIC BUTTON -->
-    <button id="musicButton" class="music-button">
-        ♫ Music Off
-    </button>
 
 
     <script src="script.js"></script>
 
 </body>
 </html>
-```
