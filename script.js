@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* =========================
+       BACKGROUND MUSIC
+    ========================= */
+
     const bgMusic = document.getElementById("bgMusic");
     const musicButton = document.getElementById("musicButton");
 
@@ -10,40 +14,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
     bgMusic.volume = 0.35;
 
-    function updateButton() {
+
+    function updateMusicButton() {
+
+        if (!musicButton) {
+            return;
+        }
+
         if (bgMusic.paused) {
             musicButton.textContent = "♫ Music Off";
         } else {
             musicButton.textContent = "♫ Music On";
         }
+
     }
+
 
     function playMusic() {
 
-    if (!bgMusic) {
-        return;
+        bgMusic.play()
+            .then(function () {
+
+                updateMusicButton();
+
+            })
+            .catch(function (error) {
+
+                console.log("Music failed to play:", error);
+
+            });
+
     }
 
-    bgMusic.play()
-        .then(function () {
-            musicButton.textContent = "♫ Music On";
-        })
-        .catch(function (error) {
-            console.log("Music failed:", error);
-        });
-}
+
     /*
-     * Start music when the user clicks anywhere
-     * on the website for the first time.
+     * Start music on the first user interaction.
      */
+    let musicStarted = false;
+
     document.addEventListener("click", function () {
-        if (bgMusic.paused) {
+
+        if (!musicStarted && bgMusic.paused) {
+
+            musicStarted = true;
             playMusic();
+
         }
+
     }, { once: true });
 
 
-    /* Music On / Off button */
+    /* MUSIC ON / OFF BUTTON */
 
     if (musicButton) {
 
@@ -52,10 +73,14 @@ document.addEventListener("DOMContentLoaded", function () {
             event.stopPropagation();
 
             if (bgMusic.paused) {
+
                 playMusic();
+
             } else {
+
                 bgMusic.pause();
-                updateButton();
+                updateMusicButton();
+
             }
 
         });
@@ -63,10 +88,46 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* PAGE NAVIGATION */
+    /* =========================
+       PAGE NAVIGATION
+    ========================= */
 
     const screens = document.querySelectorAll(".screen");
     const nextButtons = document.querySelectorAll(".next-button");
+
+
+    function showScreen(screenId) {
+
+        screens.forEach(function (screen) {
+
+            screen.classList.remove("active");
+
+        });
+
+
+        const target = document.getElementById(screenId);
+
+
+        if (target) {
+
+            target.classList.add("active");
+            target.scrollTop = 0;
+
+
+            const letterPaper =
+                target.querySelector(".letter-paper");
+
+
+            if (letterPaper) {
+
+                letterPaper.scrollTop = 0;
+
+            }
+
+        }
+
+    }
+
 
     nextButtons.forEach(function (button) {
 
@@ -75,31 +136,26 @@ document.addEventListener("DOMContentLoaded", function () {
             const nextScreen =
                 button.getAttribute("data-next");
 
+
             if (!nextScreen) {
                 return;
             }
 
-            screens.forEach(function (screen) {
-                screen.classList.remove("active");
-            });
 
-            const target =
-                document.getElementById(nextScreen);
-
-            if (target) {
-                target.classList.add("active");
-                target.scrollTop = 0;
-            }
+            showScreen(nextScreen);
 
         });
 
     });
 
 
-    /* GIFT */
+    /* =========================
+       GIFT
+    ========================= */
 
     const giftBox = document.getElementById("giftBox");
     const giftMessage = document.getElementById("giftMessage");
+
 
     if (giftBox && giftMessage) {
 
@@ -111,5 +167,45 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
+
+
+    /* =========================
+       KEYBOARD SUPPORT
+    ========================= */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key !== "Enter") {
+            return;
+        }
+
+
+        const activeScreen =
+            document.querySelector(".screen.active");
+
+
+        if (!activeScreen) {
+            return;
+        }
+
+
+        const button =
+            activeScreen.querySelector(".next-button");
+
+
+        if (button) {
+
+            button.click();
+
+        }
+
+    });
+
+
+    /* =========================
+       INITIAL MUSIC BUTTON
+    ========================= */
+
+    updateMusicButton();
 
 });
