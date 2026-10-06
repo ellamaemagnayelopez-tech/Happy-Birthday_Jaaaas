@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* =========================
+    /* ==================================================
        SCREEN NAVIGATION
-    ========================= */
+    ================================================== */
 
     const screens = document.querySelectorAll(".screen");
     const nextButtons = document.querySelectorAll(".next-button");
@@ -16,13 +16,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const target = document.getElementById(screenId);
 
         if (target) {
+
             target.classList.add("active");
 
-            /* Reset scroll position */
+            /* Reset main screen scroll */
             target.scrollTop = 0;
 
+            /* Reset inner scroll areas */
             const scrollable = target.querySelector(
-                ".letter-paper, .memories-content"
+                ".letter-paper"
             );
 
             if (scrollable) {
@@ -31,8 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-
-    /* EVERY NEXT BUTTON */
 
     nextButtons.forEach(function (button) {
 
@@ -46,7 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             showScreen(nextScreen);
 
-            /* Start music after user interaction */
+            /*
+                Music starts when the visitor
+                clicks "Open this ♡" and reaches
+                the birthday page.
+            */
             if (nextScreen === "birthday") {
                 startMusic();
             }
@@ -56,9 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* =========================
+    /* ==================================================
        BACKGROUND MUSIC
-    ========================= */
+    ================================================== */
 
     const bgMusic = document.getElementById("bgMusic");
     const musicButton = document.getElementById("musicButton");
@@ -72,7 +76,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function startMusic() {
 
-        if (!bgMusic || musicStarted) {
+        if (!bgMusic) {
+            return;
+        }
+
+        if (!bgMusic.paused) {
             return;
         }
 
@@ -91,8 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 })
                 .catch(function () {
-                    /* Browser blocked autoplay.
-                       User can use music button. */
+
+                    if (musicButton) {
+                        musicButton.textContent = "♫ Music Off";
+                    }
+
                 });
         }
     }
@@ -112,16 +123,21 @@ document.addEventListener("DOMContentLoaded", function () {
                     .then(function () {
 
                         musicStarted = true;
+
                         musicButton.textContent = "♫ Music On";
 
                     })
                     .catch(function () {
+
                         musicButton.textContent = "♫ Music Off";
+
                     });
 
             } else {
 
                 bgMusic.pause();
+
+                musicStarted = false;
 
                 musicButton.textContent = "♫ Music Off";
             }
@@ -131,9 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================
+    /* ==================================================
        GIFT
-    ========================= */
+    ================================================== */
 
     const giftBox = document.getElementById("giftBox");
     const giftMessage = document.getElementById("giftMessage");
@@ -143,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
         giftBox.addEventListener("click", function () {
 
             giftBox.classList.toggle("open");
+
             giftMessage.classList.toggle("show");
 
         });
@@ -150,26 +167,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================
+    /* ==================================================
        KEYBOARD SUPPORT
-    ========================= */
+    ================================================== */
 
     document.addEventListener("keydown", function (event) {
 
-        if (event.key === "Enter") {
+        if (event.key !== "Enter") {
+            return;
+        }
 
-            const activeScreen = document.querySelector(".screen.active");
+        const activeScreen =
+            document.querySelector(".screen.active");
 
-            if (!activeScreen) {
-                return;
-            }
+        if (!activeScreen) {
+            return;
+        }
 
-            const button = activeScreen.querySelector(".next-button");
+        const button =
+            activeScreen.querySelector(".next-button");
 
-            if (button) {
-                button.click();
-            }
-
+        if (button) {
+            button.click();
         }
 
     });
