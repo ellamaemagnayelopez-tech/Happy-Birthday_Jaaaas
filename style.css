@@ -761,3 +761,18 @@ h2 {
     }
 
 }
+
+.birthday-greeting {
+    margin: 30px auto 15px;
+    max-width: 900px;
+
+    font-family: "Pacifico", cursive;
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.25;
+
+    text-align: center;
+    color: #b86b80;
+
+    text-shadow:
+        0 4px 12px rgba(184, 107, 128, 0.15);
+}
