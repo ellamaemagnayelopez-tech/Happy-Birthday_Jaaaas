@@ -791,3 +791,363 @@ h2 {
     text-shadow:
         0 4px 12px rgba(184, 107, 128, 0.15);
 }
+
+/* ========================================
+   BIRTHDAY GREETING PAGE
+======================================== */
+
+.birthday-screen {
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            #fffdfb 0%,
+            #fceff2 45%,
+            #f6e2e7 100%
+        );
+}
+
+
+/* SOFT BACKGROUND CIRCLES */
+
+.birthday-bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.55;
+}
+
+.shape-one {
+    width: 380px;
+    height: 380px;
+
+    top: -150px;
+    left: -130px;
+
+    background: #f4c6d2;
+}
+
+.shape-two {
+    width: 330px;
+    height: 330px;
+
+    right: -130px;
+    bottom: -120px;
+
+    background: #e6d2eb;
+}
+
+
+/* SPARKLES */
+
+.birthday-sparkles span {
+    position: absolute;
+
+    font-size: 28px;
+
+    color: #d49aaa;
+
+    animation: sparkleFloat 3s ease-in-out infinite;
+}
+
+.birthday-sparkles span:nth-child(1) {
+    top: 17%;
+    left: 13%;
+}
+
+.birthday-sparkles span:nth-child(2) {
+    top: 25%;
+    right: 15%;
+
+    font-size: 20px;
+}
+
+.birthday-sparkles span:nth-child(3) {
+    bottom: 20%;
+    left: 17%;
+
+    font-size: 18px;
+}
+
+.birthday-sparkles span:nth-child(4) {
+    bottom: 18%;
+    right: 17%;
+
+    font-size: 25px;
+}
+
+.birthday-sparkles span:nth-child(5) {
+    top: 13%;
+    right: 32%;
+
+    font-size: 15px;
+}
+
+@keyframes sparkleFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(15deg);
+        opacity: 1;
+    }
+}
+
+
+/* BALLOONS */
+
+.birthday-balloons {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+}
+
+.balloon {
+    position: absolute;
+
+    font-size: 65px;
+
+    filter:
+        drop-shadow(
+            0 8px 8px rgba(120, 70, 90, 0.12)
+        );
+
+    animation: balloonFloat 4s ease-in-out infinite;
+}
+
+.balloon-pink {
+    top: 13%;
+    left: 8%;
+}
+
+.balloon-yellow {
+    top: 11%;
+    right: 9%;
+
+    animation-delay: 1s;
+}
+
+.balloon-blue {
+    bottom: 13%;
+    right: 8%;
+
+    font-size: 55px;
+
+    animation-delay: 1.8s;
+}
+
+@keyframes balloonFloat {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(5deg);
+    }
+}
+
+
+/* MAIN BIRTHDAY CARD */
+
+.birthday-card-main {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(720px, 88%);
+
+    padding: 65px 50px 55px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+    border: 1px solid rgba(190, 115, 135, 0.18);
+
+    border-radius: 35px;
+
+    box-shadow:
+        0 25px 70px rgba(125, 75, 90, 0.16);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* SMALL TITLE */
+
+.birthday-small-title {
+    margin-bottom: 18px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    color: #a87884;
+}
+
+
+/* LITTLE LINE */
+
+.birthday-line {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+
+    color: #d28fa1;
+}
+
+.birthday-line span:nth-child(2) {
+    width: 70px;
+    height: 1px;
+
+    background: #d9a5b2;
+}
+
+
+/* MAIN TITLE */
+
+.birthday-main-title {
+    margin: 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(45px, 7vw, 78px);
+
+    font-weight: 600;
+
+    line-height: 0.95;
+
+    color: #704c54;
+}
+
+.birthday-main-title strong {
+    display: block;
+
+    margin: 8px 0;
+
+    font-family: "Pacifico", cursive;
+
+    font-size: clamp(60px, 9vw, 100px);
+
+    font-weight: 400;
+
+    color: #c87991;
+
+    text-shadow:
+        0 6px 15px rgba(200, 121, 145, 0.18);
+}
+
+
+/* TO YOU */
+
+.birthday-to {
+    margin-top: 25px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(18px, 3vw, 25px);
+
+    font-style: italic;
+
+    color: #795960;
+}
+
+
+/* DIVIDER */
+
+.birthday-divider {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin: 28px 0;
+
+    color: #d28fa1;
+
+    font-size: 18px;
+}
+
+
+/* NOTE */
+
+.birthday-note {
+    margin-bottom: 30px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #80666c;
+}
+
+.birthday-note strong {
+    color: #b96880;
+
+    letter-spacing: 2px;
+}
+
+
+/* BUTTON */
+
+.birthday-card-main .next-button {
+    margin-top: 5px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .birthday-card-main {
+        width: 90%;
+
+        padding: 45px 22px 38px;
+
+        border-radius: 28px;
+    }
+
+    .birthday-small-title {
+        font-size: 9px;
+
+        letter-spacing: 2.5px;
+    }
+
+    .birthday-main-title {
+        font-size: 43px;
+    }
+
+    .birthday-main-title strong {
+        font-size: 65px;
+    }
+
+    .birthday-to {
+        font-size: 18px;
+    }
+
+    .balloon {
+        font-size: 45px;
+    }
+
+    .balloon-blue {
+        font-size: 40px;
+    }
+
+    .birthday-sparkles span {
+        font-size: 20px;
+    }
+}
