@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ==================================================
+    /* =========================
        SCREEN NAVIGATION
-    ================================================== */
+    ========================= */
 
     const screens = document.querySelectorAll(".screen");
     const nextButtons = document.querySelectorAll(".next-button");
@@ -16,19 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const target = document.getElementById(screenId);
 
         if (target) {
-
             target.classList.add("active");
-
-            /* Reset main screen scroll */
             target.scrollTop = 0;
 
-            /* Reset inner scroll areas */
-            const scrollable = target.querySelector(
-                ".letter-paper"
-            );
+            const letterPaper = target.querySelector(".letter-paper");
 
-            if (scrollable) {
-                scrollable.scrollTop = 0;
+            if (letterPaper) {
+                letterPaper.scrollTop = 0;
             }
         }
     }
@@ -44,33 +38,47 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            showScreen(nextScreen);
-
             /*
-                Music starts when the visitor
-                clicks "Open this ♡" and reaches
-                the birthday page.
-            */
+             * IMPORTANT:
+             * Start music on the FIRST button click.
+             * This is allowed because the click is a
+             * user interaction.
+             */
             if (nextScreen === "birthday") {
                 startMusic();
             }
+
+            showScreen(nextScreen);
 
         });
 
     });
 
 
-    /* ==================================================
+    /* =========================
        BACKGROUND MUSIC
-    ================================================== */
+    ========================= */
 
     const bgMusic = document.getElementById("bgMusic");
     const musicButton = document.getElementById("musicButton");
 
-    let musicStarted = false;
-
     if (bgMusic) {
         bgMusic.volume = 0.35;
+    }
+
+
+    function updateMusicButton() {
+
+        if (!musicButton || !bgMusic) {
+            return;
+        }
+
+        if (bgMusic.paused) {
+            musicButton.textContent = "♫ Music Off";
+        } else {
+            musicButton.textContent = "♫ Music On";
+        }
+
     }
 
 
@@ -80,6 +88,10 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        /*
+         * If music is already playing,
+         * don't restart it.
+         */
         if (!bgMusic.paused) {
             return;
         }
@@ -91,23 +103,26 @@ document.addEventListener("DOMContentLoaded", function () {
             playPromise
                 .then(function () {
 
-                    musicStarted = true;
-
-                    if (musicButton) {
-                        musicButton.textContent = "♫ Music On";
-                    }
+                    updateMusicButton();
 
                 })
-                .catch(function () {
+                .catch(function (error) {
 
-                    if (musicButton) {
-                        musicButton.textContent = "♫ Music Off";
-                    }
+                    console.log(
+                        "Music could not start:",
+                        error
+                    );
+
+                    updateMusicButton();
 
                 });
+
         }
+
     }
 
+
+    /* MUSIC BUTTON */
 
     if (musicButton) {
 
@@ -117,29 +132,38 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
+
             if (bgMusic.paused) {
 
-                bgMusic.play()
-                    .then(function () {
+                const playPromise = bgMusic.play();
 
-                        musicStarted = true;
+                if (playPromise !== undefined) {
 
-                        musicButton.textContent = "♫ Music On";
+                    playPromise
+                        .then(function () {
 
-                    })
-                    .catch(function () {
+                            updateMusicButton();
 
-                        musicButton.textContent = "♫ Music Off";
+                        })
+                        .catch(function (error) {
 
-                    });
+                            console.log(
+                                "Music could not play:",
+                                error
+                            );
+
+                            updateMusicButton();
+
+                        });
+
+                }
 
             } else {
 
                 bgMusic.pause();
 
-                musicStarted = false;
+                updateMusicButton();
 
-                musicButton.textContent = "♫ Music Off";
             }
 
         });
@@ -147,9 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==================================================
+    /* =========================
        GIFT
-    ================================================== */
+    ========================= */
 
     const giftBox = document.getElementById("giftBox");
     const giftMessage = document.getElementById("giftMessage");
@@ -167,9 +191,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==================================================
+    /* =========================
        KEYBOARD SUPPORT
-    ================================================== */
+    ========================= */
 
     document.addEventListener("keydown", function (event) {
 
