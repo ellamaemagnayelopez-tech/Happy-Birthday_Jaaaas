@@ -19,16 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function playMusic() {
-        bgMusic.play()
-            .then(function () {
-                console.log("Music is playing!");
-                updateButton();
-            })
-            .catch(function (error) {
-                console.log("Music failed to play:", error);
-            });
+
+    if (!bgMusic) {
+        return;
     }
 
+    bgMusic.play()
+        .then(function () {
+            musicButton.textContent = "♫ Music On";
+        })
+        .catch(function (error) {
+            console.log("Music failed:", error);
+        });
+}
     /*
      * Start music when the user clicks anywhere
      * on the website for the first time.
